@@ -2,12 +2,15 @@ import React from "react";
 import {useState} from "react";
 import Axios from "axios";
 import "./login.css";
+import background from "../img/Group145.png";
+import background2 from "../img/Group172.png";
+
+
 
 function Login() {
   let link = (
     <a
       href="http://localhost:3000/signup"
-      target="_blank"
       rel="noopener noreferrer"
     >
       Create an account
@@ -30,6 +33,8 @@ function Login() {
 
   return (
     <div class="login-page">
+    <img src={background} alt="background" className="background"></img>
+    <img src={background2} alt="background2" className="background2"></img>
       <div class="form">
         <form class="login-form">
           <h1 className="login-title">Log in to Treva</h1>

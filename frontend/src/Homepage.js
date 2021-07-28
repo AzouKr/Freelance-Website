@@ -19,8 +19,12 @@ function Homepage() {
       <h1 className="headline">Find Your Dream Job Here</h1>
       <p className="under-headline">The possibilities are endless. We have expert freelancers who work in every</p>
       <p className="under-headline2">technical,professional,and creative field imaginable</p>
+      <Link to="/signin"  style={{ textDecoration: 'none' }}>
       <button className="Hire">Hire</button>
+      </Link>
+      <Link to="/signin"  style={{ textDecoration: 'none' }}>
       <button className="Work">Work</button>
+      </Link>
       <img src={back} alt="back" className="back"></img>
     </div>
     )

@@ -1,5 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+.background3{
+  position: absolute;
+  left: 400px;
+}
+
+.background4{
+  position: absolute;
+  right: 420px;
+  bottom: 10px;
+}
+
 .login-page {
   position: absolute;
   width: 360px;
