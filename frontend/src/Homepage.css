@@ -1,0 +1,98 @@
+.landing-page{
+    height: 900px;
+  }
+  
+  .logo{
+    position: absolute;
+    left: 120px;
+    top: 56px;
+  }
+  
+  .Sign-In{
+    position: absolute;
+    top: 54px;
+    right: 320px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap');
+  
+  .btn-SignUp{
+    position: absolute;
+    top: 54px;
+    right: 128px;
+    height: 42px;
+    width: 111px;
+    border-radius: 45px;
+    border-width: 0px;
+    background-color: #7F83FF;
+    font-size: 18px;
+    font-family: 'Work Sans', sans-serif;
+    color: #ffff;
+    cursor: pointer;
+  }
+  
+  .headline{
+    position: absolute;
+    top: 168px;
+    left: 40rem;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 45px;
+    font-weight: initial;
+  }
+  
+  .under-headline{
+    position: absolute;
+    top: 243px;
+    left: 29rem;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 26px;
+    font-weight: initial;
+  }
+  
+  .under-headline2{
+    position: absolute;
+    top: 283px;
+    left: 39rem;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 26px;
+    font-weight: initial;
+  }
+  
+  .Hire{
+    position: absolute;
+    top: 410px;
+    left: 48rem;
+    height: 55px;
+    width: 151px;
+    border-radius: 10px;
+    border-width: 0px;
+    background-color: #4A4EDD;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 25px;
+    color: #ffff;
+    cursor: pointer;
+  }
+  
+  .Work{
+    position: absolute;
+    top: 410px;
+    left: 59rem;
+    height: 55px;
+    width: 151px;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: #4A4EDD;
+    background-color: #ffff;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 25px;
+    color: #4A4EDD;
+    cursor: pointer;
+  }
+  
+  .back{
+    position: absolute;
+    top: 32rem;
+    left: 8rem;
+  }
