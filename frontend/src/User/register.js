@@ -1,16 +1,15 @@
 import React from "react";
-import {useState} from "react";
+import { useState } from "react";
 import Axios from "axios";
 import "./register.css";
+import { useHistory } from "react-router-dom";
 import background3 from "../img/Group163.png";
 import background4 from "../img/Group247.png";
 
 function Register() {
+  let history = useHistory();
   let link = (
-    <a
-      href="http://localhost:3000/signin"
-      rel="noopener noreferrer"
-    >
+    <a href="http://localhost:3000/signin" rel="noopener noreferrer">
       Log In
     </a>
   );
@@ -24,18 +23,24 @@ function Register() {
   const register = (e) => {
     e.preventDefault();
     Axios.post("http://localhost:3001/api/user/register", {
-        name: username,
-        email: email,
-        password: password,
-        account: account,
-      }).then((response) => {
-        setinfo(response.data);
-      });
+      name: username,
+      email: email,
+      password: password,
+      account: account,
+    }).then((response) => {
+      setinfo(response.data);
+        if(info.bool){
+          history.push({
+            pathname: "/editprofile",
+            state: {email: email, nom: username},
+            });
+        }
+    });
   };
   return (
     <div class="login-page">
-    <img src={background3} alt="background3" className="background3"></img>
-    <img src={background4} alt="background4" className="background4"></img>
+      <img src={background3} alt="background3" className="background3"></img>
+      <img src={background4} alt="background4" className="background4"></img>
       <div class="form">
         <form class="login-form">
           <h1 className="login-title">Sign Up to Treva</h1>
@@ -65,9 +70,11 @@ function Register() {
           />
           <label>I want:</label>
           <div class="custom_select">
-            <select onChange={(e) => {
-                  setaccount(e.target.value);
-                }}>
+            <select
+              onChange={(e) => {
+                setaccount(e.target.value);
+              }}
+            >
               <option value="">Select</option>
               <option value="Hire">Hire</option>
               <option value="Work">Work</option>
@@ -75,7 +82,7 @@ function Register() {
           </div>
           <button onClick={register}>create</button>
           <p class="message">Already registered? {link}</p>
-          <p style={{ color:"red"}}>{info}</p>
+          <p style={{ color: "red" }}>{info.message}</p>
         </form>
       </div>
     </div>

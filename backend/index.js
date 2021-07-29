@@ -13,7 +13,8 @@ app.use(cors({
 
 // Import Routes
 const authRoute = require("./routes/auth");
-const privateRoute = require('./routes/privateRoute');
+const createProfile = require('./routes/profile');
+
 
 dotenv.config();
 
@@ -33,6 +34,6 @@ app.use(bodyParser.json());
 
 // Route Middleware
 app.use("/api/user", authRoute);
-app.use("/api/", privateRoute);
+app.use("/api/", createProfile);
 
 app.listen(3001, () => console.log("Server is Up and Running"));
