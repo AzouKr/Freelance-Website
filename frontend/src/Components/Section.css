@@ -1,0 +1,19 @@
+.section{
+    border-bottom: 1px solid grey;
+    height: 50px;
+}
+
+.navba{
+    position: absolute;
+    display: flex;
+    list-style-type: none;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    top: 110px;
+    left: 17rem;
+}
+
+.navIt{
+    padding-left: 50px;
+    font-weight: bold;
+}
