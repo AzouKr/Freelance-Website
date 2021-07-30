@@ -14,6 +14,9 @@ app.use(cors({
 // Import Routes
 const authRoute = require("./routes/auth");
 const createProfile = require('./routes/profile');
+const createGig = require('./routes/gig');
+const allGig = require('./routes/Get/allGigs');
+
 
 
 dotenv.config();
@@ -35,5 +38,8 @@ app.use(bodyParser.json());
 // Route Middleware
 app.use("/api/user", authRoute);
 app.use("/api/", createProfile);
+app.use("/api/", createGig);
+app.use("/api/", allGig);
+
 
 app.listen(3001, () => console.log("Server is Up and Running"));

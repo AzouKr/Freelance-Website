@@ -4,10 +4,12 @@ import Axios from "axios";
 import "./login.css";
 import background from "../img/Group145.png";
 import background2 from "../img/Group172.png";
+import { useHistory } from "react-router-dom";
 
 
 
 function Login() {
+  let history = useHistory();
   let link = (
     <a
       href="http://localhost:3000/signup"
@@ -21,14 +23,20 @@ function Login() {
   const [info, setinfo] = useState([]);
 
 
-  const signin = (e) => {
+  const signin  = (e)  => {
     e.preventDefault();
     Axios.post("http://localhost:3001/api/user/login", {
       email: email,
       password: password,
     }).then((response) => {
-      setinfo(response.data);
+       setinfo(response.data);
     });
+    if(info.bool){
+      history.push({
+        pathname: "/main",
+        state: {email: email, auth: true},
+        });
+    }
   };
 
   return (
@@ -46,7 +54,7 @@ function Login() {
             }} placeholder="password" />
           <button onClick={signin}>login</button>
           <p class="message">Not registered? {link}</p>
-          <p style={{ color:"red"}}>{info}</p>
+          <p style={{ color:"red"}}>{info.message}</p>
         </form>
       </div>
     </div>

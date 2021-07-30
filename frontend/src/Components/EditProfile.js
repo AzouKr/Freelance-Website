@@ -43,7 +43,10 @@ function EditProfile() {
           
         }).then((response) => {
           setinfo(response.data);
-              console.log(info);
+          history.push({
+            pathname: "/main",
+            state: {email: location.email, auth: true},
+            });
         });
       };
 

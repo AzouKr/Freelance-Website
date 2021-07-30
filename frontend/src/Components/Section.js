@@ -4,7 +4,8 @@ import Adsection from './Adsection';
 import "./Section.css";
 
 
-function Section() {
+function Section({props}) {
+    const useremail=props;
     return (
         <div>
         <div className="section">
@@ -17,7 +18,7 @@ function Section() {
                 <li className="navIt">Programming & Tech</li>
             </ul>
         </div>     
-        <Adsection></Adsection>
+        <Adsection prop={useremail}/>
         <ListGig></ListGig>
         </div>
     )
