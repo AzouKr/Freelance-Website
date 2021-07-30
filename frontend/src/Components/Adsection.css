@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap');
+
+
+.Section{
+    height: 240px;
+    margin: 30px 300px 0px 300px;
+    display: flex;
+}
+
+.box{
+    position: relative;
+    background-color:#EEEEEE;
+    height: 240px;
+    width: 240px;
+}
+
+.welcome{
+    position: relative;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 20px;
+    left: 45px;
+    top: 60px;
+}
+
+.sous-welcome1{
+    position: relative;
+    font-size: 16px;
+    left: 25px;
+    top: 65px;
+}
+
+.sous-welcome2{
+    position: relative;
+    font-size: 16px;
+    left: 77px;
+    top: 65px;
+}
+
+.request{
+    position: relative;
+    font-family: 'Work Sans', sans-serif;
+    top: 85px;
+    left: 24px;
+    height: 40px;
+    width: 190px;
+    color: #50CB93;
+    border: 1.5px solid #50CB93;
+}
+
+.request:hover{
+    color: white;
+    background-color: green;
+    border: 1.5px solid green;
+}
+
+.slideshow{
+    margin-left: -20px;
+    position: relative;
+    top: 2px;
+    left: 40px;
+}

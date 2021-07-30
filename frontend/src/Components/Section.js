@@ -1,4 +1,6 @@
 import React from 'react'
+import ListGig from './ListGig'; 
+import Adsection from './Adsection';
 import "./Section.css";
 
 
@@ -14,7 +16,9 @@ function Section() {
                 <li className="navIt">Music & Audio</li>
                 <li className="navIt">Programming & Tech</li>
             </ul>
-        </div>            
+        </div>     
+        <Adsection></Adsection>
+        <ListGig></ListGig>
         </div>
     )
 }

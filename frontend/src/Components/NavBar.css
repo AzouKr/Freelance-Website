@@ -2,13 +2,13 @@
 
 
 .Header{
+    position: relative;
     height: 100px;
-    border-bottom: 1px solid gray;
 }
 
 .mini-logo{
     position: absolute;
-    top: 23px;
+    top: 26px;
     left: 300px;
 }
 
@@ -43,7 +43,7 @@
     font-family: 'Work Sans', sans-serif;
     font-size: 18px;
     top: 41px;
-    left: 1150px;
+    right: 300px;
 }
 
 .navItem{
