@@ -2,7 +2,6 @@ import React from "react";
 import "./NavBar.css";
 import logo from "../img/treva.png";
 import { useHistory } from "react-router-dom";
-// import {Link} from 'react-router-dom';
 
 
 function NavBar({ props }) {
@@ -17,21 +16,13 @@ function NavBar({ props }) {
       });
   }
 
-  const home = (e) => {
-    e.preventDefault();
-    history.push({
-      pathname: "/main",
-      state: {email: email},
-      });
-  }
+  
 
 
   return (
     <div>
       <div className="Header">
-      {/* <Link to="/main"> */}
-        <img src={logo} alt="logo" className="mini-logo" onClick={home} ></img>
-        {/* </Link> */}
+        <img src={logo} alt="logo" className="mini-logo"></img>
         <div class="input_groupe">
           <input type="text" class="input" placeholder="Find Service" />
           <button class="btn btn-primary" type="button">

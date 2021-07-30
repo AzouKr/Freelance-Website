@@ -4,9 +4,11 @@ import NavBar from "./NavBar";
 import {useState} from "react";
 import Axios from "axios";
 import { useLocation} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 function Porfile() {
+  let history = useHistory();
   const location = useLocation().state;
   const email = location.email;
   const [info, setinfo] = useState([]);
@@ -49,10 +51,22 @@ function Porfile() {
       });
     }
 
+    const home = (e) => {
+      e.preventDefault();
+      history.push({
+        pathname: "/main",
+        state: {email: email},
+        });
+    }
+
   return (
     <div>
       <NavBar></NavBar>
       <div className="porfile-section">
+      <div className="go-home">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      <h1 className="go" onClick={home} >Go back To Homepage</h1>
+      </div>
         <div className="profile-box">
           <img
             src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png"

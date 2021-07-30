@@ -5,9 +5,10 @@ import Section from './Section';
 import { useLocation} from "react-router-dom";
 
 
-function MainPage() {
+function MainPage({props}) {
     const location = useLocation().state;
     let email = location.email;
+    console.log({props});
     return (
         <div>
             <NavBar props={email}/>

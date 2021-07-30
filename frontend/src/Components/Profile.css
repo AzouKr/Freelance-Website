@@ -96,3 +96,18 @@
     margin-right: 30px ;
     margin-left: 30px ;
 }
+
+.go-home{
+    position: absolute;
+    display: flex;
+    top: 20px;
+}
+
+.go{
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.go:hover{
+    cursor: pointer;
+}
