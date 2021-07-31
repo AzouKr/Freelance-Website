@@ -18,21 +18,21 @@
     position: relative;
     font-family: 'Work Sans', sans-serif;
     font-size: 20px;
-    left: 45px;
+    text-align: center;
     top: 60px;
 }
 
 .sous-welcome1{
     position: relative;
     font-size: 16px;
-    left: 25px;
+    text-align: center;
     top: 65px;
 }
 
 .sous-welcome2{
     position: relative;
     font-size: 16px;
-    left: 77px;
+    text-align: center;
     top: 65px;
 }
 
@@ -54,8 +54,8 @@
 }
 
 .slideshow{
-    margin-left: -20px;
+    margin-left: -40px;
     position: relative;
     top: 2px;
-    left: 40px;
+    left: 60px;
 }

@@ -29,6 +29,10 @@ const GigsSchema = new  mongoose.Schema({
       type: Number,
       required: true,
     },
+    type:{
+      type: String,
+      required: true,
+    },
   });
 
 module.exports = mongoose.model('Gigs', GigsSchema);

@@ -4,7 +4,7 @@ import slideshow from "../img/slideshow.gif";
 import {useState} from "react";
 import Axios from "axios";
 
-function Adsection({prop}) {
+function Adsection ({prop}) {
 
     const email = prop;
     const [info, setinfo] = useState([]);

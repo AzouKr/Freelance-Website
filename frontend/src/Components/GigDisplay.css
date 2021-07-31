@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+.info{
+    position: absolute;
+}
+
+.gig-info{
+    position: relative;
+    left: 300px;
+    top: 100px;
+    width: 709px;
+    padding-bottom: 300px;
+}
+
+
+.gig-title{
+    position: relative;
+    font-size: 30px;
+    font-family: 'Roboto Slab', serif;
+}
+
+.seller{
+    position: absolute;
+    display: flex;
+
+}
+
+.profile-gig{
+    position: relative;
+    top: 20px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.seller-name{
+    position: relative;
+    font-size: 15px;
+    left: 20px;
+    top: 26px;
+}
+
+
+.cubeAnimation{
+    position: relative;
+    top: 80px;
+}
+
+.About{
+    position: relative;
+    top: 150px;
+    font-size: 30px;
+    font-family: 'Roboto Slab', serif;
+}
+
+.gig-desc{
+    position: relative;
+    top: 180px;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.devider{
+    position: relative;
+    height: 100px;
+    width: 709px;
+    left: 300px;
+    border-bottom: 1px solid gray;
+}
+
+.Seller{
+    padding-top: 100px;
+    position: relative ;
+    left: 300px;
+    width: 709px;
+    padding-bottom: 200px;
+
+}
+
+.img-seller{
+    position: relative;
+}
+
+.About-seller{
+    position: relative;
+    font-size: 30px;
+    font-family: 'Roboto Slab', serif;
+    top: 80px;
+}
+
+
+.seller-avatar{
+    position: relative;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    top: 130px;
+}
+
+.seller-info{
+    position: relative;
+    display: flex;
+}
+
+.seller-info-desc{
+    position: relative;
+    top: 130px;
+    left: 20px;
+
+}
+
+.his-name{
+    font-size: 20px;
+}
+
+.seller-desc{
+    font-size: 20px;
+}
+
+.stars{
+    margin-bottom: 20px;
+    color: green;
+}
+
+.contact-me{
+    height: 40px;
+    width: 140px;
+    font-size: 14px;
+    font-family: 'Roboto Slab', serif;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5%;
+}
+
+.contact-me:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+
+.profile-seller-info{
+    position: relative;
+    width: 709px;
+    height: 200px;
+    left: 300px;
+    margin-bottom: 200px;
+}
+
+.verified{
+    position: relative;
+    height: 100px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.seller-exper{
+    position: relative;
+    font-size: 20px;
+    left: 50px;
+}
+
+.profile-seller-from{
+    position: relative;
+    height: 200px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.profile-seller-country{
+    position: relative;
+    display: flex;
+    left: 30px;
+    top: 30px;
+}
+
+.pays{
+    font-size: 20px;
+    color: gray;
+}
+
+.seller-reg{
+    color: gray;
+    font-size: 20px;
+    margin-left: 350px;
+}
+
+.profile-seller-country-info{
+    position: relative;
+    display: flex;
+    left: 30px;
+    top: 30px;
+}
+
+.pays-info{
+    font-size: 20px;
+    color: black;
+}
+
+.seller-reg-info{
+    position: absolute;
+    color: black;
+    font-size: 20px;
+    left: 397px;
+    
+}
+
+.profile-seller-gig{
+    position: relative;
+    display: flex;
+    left: 30px;
+    top: 30px;
+}
+
+.resp{
+    font-size: 20px;
+    color: gray;
+}
+
+.deli{
+    position: absolute;
+    color: gray;
+    font-size: 20px;
+    left: 397px;
+    
+}
+
+.profile-seller-gig-info{
+    position: relative;
+    display: flex;
+    left: 30px;
+    top: 30px;
+}
+
+.resp-info{
+    font-size: 20px;
+    color: black;
+}
+
+.deli-info{
+    position: absolute;
+    color: black;
+    font-size: 20px;
+    left: 397px;
+    
+}
+
+.contact-sell-price{
+    position:absolute;
+    height: 500px;
+    width: 414px;
+    left: 75rem;
+    top: 30rem;
+    border: 1px solid gray;
+}
+
+.head{
+    position: fixed;
+}
+
+.buttons{
+    display: flex;
+}
+
+.basic{
+    height: 59px;
+    width: 138px;
+    background-color: white;
+    color: #50CB93;
+    font-weight: bold;
+    border-bottom: 4px solid #50CB93;
+}
+
+.standard{
+    height: 59px;
+    width: 138px;
+    background-color: #EEEE;
+    border: 0.5px solid gray;
+}
+
+.premium{
+    height: 59px;
+    width: 138px;
+    background-color: #EEEEEE;
+    border: 1px solid gray;
+}
+
+.offer-title{
+    top: 100px;
+    position: absolute;
+    max-width: 300px;
+}
+
+.offer-title-h1{
+    position: relative;
+    left: 20px;
+    font-size: 18px;
+}
+
+.offer-price{
+    position: absolute;
+    font-size: 20px;
+    bottom: 20px;
+    left: 340px;
+}
+
+.offer-desc{
+    position: absolute;
+    font-size: 15px;
+    color: gray;
+    left: 20px;
+    top: 150px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.delivery{
+    position: absolute;
+    height: 100px;
+    width: 366px;
+}
+
+.del-time{
+    position: relative;
+    display: flex;
+    left: 20px;
+    top: 180px;
+}
+
+.time-del{
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    left: 10px;
+}
+
+.fa-clock{
+    position: relative;
+    top: 3px;
+
+}
+
+.check{
+    position: relative;
+    display: flex;
+    left: 20px;
+    top: 190px;
+}
+
+.check-text{
+    position: relative;
+    font-size: 18px;
+    left: 10px;
+    color: gray;
+}
+
+.fa-check{
+    position: relative;
+    top: 3px;
+    color: #28FFBF;
+}
+
+.buy-it{
+    position: relative;
+    top: 230px;
+    left: 20px;
+    width: 374px;
+    height: 42px;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.buy-it:hover{
+    background-color: #082032;
+    cursor: pointer;
+}

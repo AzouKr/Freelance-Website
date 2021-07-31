@@ -3,16 +3,17 @@ import "./MainPage.css";
 import NavBar from './NavBar';
 import Section from './Section';
 import { useLocation} from "react-router-dom";
+import ListGig from './ListGig'; 
 
 
-function MainPage({props}) {
+function MainPage() {
     const location = useLocation().state;
     let email = location.email;
-    console.log({props});
     return (
         <div>
             <NavBar props={email}/>
             <Section props={email}/>
+            <ListGig></ListGig>
         </div>
     )
 }

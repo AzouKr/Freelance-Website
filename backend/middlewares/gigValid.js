@@ -9,6 +9,7 @@ const gigValidation = (data) => {
       image3: Joi.string().required(),
       description: Joi.string().required(),
       price: Joi.number().required(),
+      type: Joi.string().required(),
     })
       return Schema.validate(data);
 }

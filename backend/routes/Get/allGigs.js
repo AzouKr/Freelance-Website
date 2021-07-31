@@ -44,4 +44,12 @@ router.post("/profilegig", async (req, res) => {
     })
 });
 
+router.post("/typegig", async (req, res) => {
+    await Gigs.find({ type: req.body.type }).then((user) => {
+        res.send(user);
+    }).catch((e) => {
+        res.send(e);
+    })
+});
+
 module.exports = router;

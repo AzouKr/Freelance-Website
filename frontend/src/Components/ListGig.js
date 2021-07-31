@@ -2,14 +2,17 @@ import React from "react";
 import "./ListGig.css";
 import {useState} from "react";
 import Axios from "axios";
+import {Link} from 'react-router-dom';
+
 
 function ListGig() {
 
   const [info, setinfo] = useState([]);
 
-  Axios.get("http://localhost:3001/api/allgigs").then((response) => {
+    Axios.get("http://localhost:3001/api/allgigs").then((response) => {
       setinfo(response.data);
     });
+
 
     function display() {
       return info.map((item) => {
@@ -22,9 +25,11 @@ function ListGig() {
               {item.description.substring(0, 50)}
               </p>
               <div className="bottom">
+              <Link to={`/main/gig/${item.title}`}>
                 <a href="#" class="btn btn-gig">
                   Go Ordre It
                 </a>
+                </Link>
                 <h1 className="price">STARTING AT ${item.price}</h1>
               </div>
           </div>

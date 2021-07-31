@@ -1,0 +1,60 @@
+import React from "react";
+import NavBar from "./NavBar";
+import Section from "./Section";
+import "./GigDisplay.css";
+import AwesomeSlider from "react-awesome-slider";
+import "react-awesome-slider/dist/styles.css";
+import {useState} from "react";
+import Axios from "axios";
+import {useParams} from 'react-router-dom';
+
+
+function GigDisplay() {
+    
+    const { title } = useParams();
+    const [info, setinfo] = useState([]);
+
+    Axios.get("http://localhost:3001/api/allgigs").then((response) => {
+      setinfo(response.data);
+    });
+
+    function display() {
+        return info.filter(item => item.title === title).map((item) => {
+          return (
+            <div className="gig-info">
+        <h1 className="gig-title">
+          {item.title}
+        </h1>
+        <div className="seller">
+          <img
+            src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png"
+            alt="Avatar"
+            className="profile-gig"
+          ></img>
+          <h1 className="seller-name">edeastman</h1>
+        </div>
+        <AwesomeSlider animation="cubeAnimation" className="cubeAnimation">
+          <div data-src={item.image1} />
+          <div data-src={item.image2} />
+          <div data-src={item.image3} />
+        </AwesomeSlider>
+        <h1 className="About">About This Gig</h1>
+        <p className="gig-desc">{item.description}</p>
+      </div>
+          );
+        });
+      }
+
+  return (
+    <div>
+      <NavBar props={"kerimaou@gmail.com"} />
+      <Section props={"kerimaou@gmail.com"} />
+      <div className="info">
+      {display()} 
+      <h1 className="About-seller">About The Seller</h1>
+      </div>
+    </div>
+  );
+}
+
+export default GigDisplay;

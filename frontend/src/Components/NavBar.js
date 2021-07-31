@@ -16,13 +16,21 @@ function NavBar({ props }) {
       });
   }
 
+  const main = (e) => {
+    e.preventDefault();
+    history.push({
+      pathname: "/main",
+      state: {email: email, auth: true},
+      });
+  }
+
   
 
 
   return (
     <div>
       <div className="Header">
-        <img src={logo} alt="logo" className="mini-logo"></img>
+        <img src={logo} alt="logo" className="mini-logo" onClick={main} ></img>
         <div class="input_groupe">
           <input type="text" class="input" placeholder="Find Service" />
           <button class="btn btn-primary" type="button">

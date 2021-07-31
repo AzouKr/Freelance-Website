@@ -24,6 +24,7 @@ router.post("/Creategig", async (req, res) => {
       image3: req.body.image3,
       description: req.body.description,
       price: req.body.price,
+      type: req.body.type,
     });
     try {
       await gig.save();

@@ -34,27 +34,27 @@
   }
   
   .headline{
-    position: absolute;
-    top: 168px;
-    left: 40rem;
+    position: relative;
+    top: 70px;
+    text-align: center;
     font-family: 'Work Sans', sans-serif;
     font-size: 45px;
     font-weight: initial;
   }
   
   .under-headline{
-    position: absolute;
-    top: 243px;
-    left: 29rem;
+    position: relative;
+    top: 70px;
+    text-align: center;
     font-family: 'Work Sans', sans-serif;
     font-size: 26px;
     font-weight: initial;
   }
   
   .under-headline2{
-    position: absolute;
-    top: 283px;
-    left: 39rem;
+    position: relative;
+    top: 70px;
+    text-align: center;
     font-family: 'Work Sans', sans-serif;
     font-size: 26px;
     font-weight: initial;
