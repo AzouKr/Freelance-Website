@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 
 
 function Login() {
+
   let history = useHistory();
   let link = (
     <a
@@ -22,6 +23,12 @@ function Login() {
   const [password, setpassword] = useState("");
   const [info, setinfo] = useState([]);
 
+  Axios.defaults.withCredentials = true;
+  Axios.get("http://localhost:3001/api/user/login").then((response) => {
+    if(response.data.loggedIn === true){
+      history.push("/main");
+    }});
+
   const signin  = (e)  => {
     e.preventDefault();
     Axios.post("http://localhost:3001/api/user/login", {
@@ -30,7 +37,9 @@ function Login() {
     }).then((response) => {
        setinfo(response.data);
       });
+      if(info.bool){
       history.push("/main");
+    }
   };
 
 
@@ -49,7 +58,7 @@ function Login() {
             }} placeholder="password" />
           <button onClick={signin}>login</button>
           <p class="message">Not registered? {link}</p>
-          <p style={{ color:"red"}}>{info}</p>
+          <p style={{ color:"red"}}>{info.message}</p>
         </form>
       </div>
     </div>

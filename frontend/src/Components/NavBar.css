@@ -47,7 +47,7 @@
     font-family: 'Work Sans', sans-serif;
     font-size: 18px;
     top: 41px;
-    right: 300px;
+    right: 400px;
 }
 
 .navItem{
@@ -63,4 +63,16 @@
     position: absolute;
     top: 4px;
     left: 560px;
+}
+
+
+.logout{
+    position: absolute;
+    font-weight: bold;
+    left: 38rem;
+    width: 90px;
+}
+
+.logout:hover{
+    cursor: pointer;
 }

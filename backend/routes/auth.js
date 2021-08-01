@@ -52,21 +52,20 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   // Validate data
   const { error } = loginValidation(req.body);
-  if (error) return res.send("email is invalid");
+  if (error) return res.send({message: "email is invalid", bool: false});
 
   // Checking if the email exist
   const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.send("Email doesn't exist");
-
+  if (!user) return res.send({message: "Email doesn't exist", bool: false});
   // Checking if password correct
   const validPass = await bcrypt.compare(req.body.password, user.password);
-  if (!validPass) return res.send("Invalid Password");
+  if (!validPass) return res.send({message: "Invalid Email", bool: false});
 
   // Create and assign a token
   const token = jwt.sign({ _id: user._id }, process.env.Token_Secret);
   res.header("auth-token", token);
   req.session.user = user;
-  res.send("Youa are loggedIn");
+  res.send({message: " ", bool: true});
 
 });
 

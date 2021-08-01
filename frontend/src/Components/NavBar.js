@@ -1,18 +1,11 @@
 import React from "react";
 import "./NavBar.css";
 import logo from "../img/treva.png";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Axios from "axios";
 
 function NavBar() {
   let history = useHistory();
-
-  const profile = (e) => {
-    e.preventDefault();
-    history.push({
-      pathname: "/profile",
-    });
-  };
 
   const Logout = (e) => {
     e.preventDefault();
@@ -24,17 +17,14 @@ function NavBar() {
     });
   };
 
-  const main = (e) => {
-    e.preventDefault();
-    history.push({
-      pathname: "/main",
-    });
-  };
+  
 
   return (
     <div>
       <div className="Header">
-        <img src={logo} alt="logo" className="mini-logo" onClick={main}></img>
+      <Link to="/main">
+        <img src={logo} alt="logo" className="mini-logo"></img>
+        </Link>
         <div class="input_groupe">
           <input type="text" class="input" placeholder="Find Service" />
           <button class="btn btn-primary" type="button">
@@ -50,11 +40,11 @@ function NavBar() {
               Try Treva Business
             </li>
             <li className="navItem">Messages</li>
-            <li className="navItem" onClick={profile}>
-              Account
-            </li>
+            <Link to="/profile" style={{textDecoration: 'none', color: 'black'}}>
+            <li className="navItem"> Account</li>
             <i class="fa fa-user" aria-hidden="true"></i>
-            <li className="navItem" onClick={Logout}>
+            </Link>
+            <li className="logout" onClick={Logout}>
               Log out
             </li>
           </ul>
