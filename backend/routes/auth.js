@@ -1,22 +1,23 @@
 const router = require("express").Router();
 const User = require("../model/User");
+const session = require("express-session");
 const {
   registerValidation,
   loginValidation,
 } = require("../middlewares/Validation");
 const bcrypt = require("bcryptjs");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 // *************************** Register **************************************
 router.post("/register", async (req, res) => {
-
   // Validate data
   const { error } = registerValidation(req.body);
-  if (error) return res.send({"message" : "email is invalid" , "bool": false});
+  if (error) return res.send(error.details[0].message);
 
   // Checking if the user is already in the database
   const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.send({"message" : "Email is already exist" , "bool": false});
+  if (emailExist)
+    return res.send("Email is already exist");
 
   // Hash the password
   const salt = await bcrypt.genSalt(10);
@@ -24,14 +25,23 @@ router.post("/register", async (req, res) => {
 
   // Create a new User
   const user = new User({
-    name: req.body.name,
+    username: req.body.username,
     email: req.body.email,
     password: hashedPassword,
-    account: req.body.account,
+    mobile: req.body.mobile,
+    adresse: req.body.adresse,
+    date_birth: req.body.date_birth,
+    date: req.body.date,
+    country: req.body.country,
+    region: req.body.region,
+    facebook: req.body.facebook,
+    twitter: req.body.twitter,
+    instagram: req.body.instagram,
+    website: req.body.website,
   });
   try {
     await user.save();
-    res.send({"message" : "You are successfuly registred" , "bool": true});
+    res.send("You are successfuly registred");
   } catch (err) {
     res.status(400).send(err);
   }
@@ -40,26 +50,32 @@ router.post("/register", async (req, res) => {
 // *************************** Login **************************************
 
 router.post("/login", async (req, res) => {
-
   // Validate data
   const { error } = loginValidation(req.body);
-  if (error) return res.send({"message" : "email is invalid" , "bool": false});
+  if (error) return res.send("email is invalid");
 
   // Checking if the email exist
   const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.send({"message" : "Email doesn't exist" , "bool": false});
-
+  if (!user) return res.send("Email doesn't exist");
 
   // Checking if password correct
   const validPass = await bcrypt.compare(req.body.password, user.password);
-  if(!validPass) return res.send({"message" : "Invalid Password" , "bool": false});
+  if (!validPass) return res.send("Invalid Password");
 
-  // Create and assign a token 
-  const token = jwt.sign({_id: user._id}, process.env.Token_Secret);
-  res.header('auth-token', token);
-  res.send({"message" : "You are successfuly logged in" , "bool": true});
+  // Create and assign a token
+  const token = jwt.sign({ _id: user._id }, process.env.Token_Secret);
+  res.header("auth-token", token);
 
+  req.session.user = user;
+  await res.send("You are succesfully logged in");
+});
 
+router.get("/login", async (req, res) => {
+  if (req.session.user) {
+   await res.send({ loggedIn: true, user: req.session.user});
+  } else {
+    await res.send({ loggedIn: false });
+  }
 });
 
 module.exports = router;

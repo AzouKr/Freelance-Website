@@ -4,22 +4,21 @@ import slideshow from "../img/slideshow.gif";
 import {useState} from "react";
 import Axios from "axios";
 
-function Adsection ({prop}) {
+function Adsection () {
 
-    const email = prop;
-    const [info, setinfo] = useState([]);
+  const [info, setinfo] = useState([]);
+  Axios.defaults.withCredentials = true;
 
-    Axios.post("http://localhost:3001/api/username", {
-      email: email,
-    }).then((response) => {
-      setinfo(response.data);
+    Axios.get("http://localhost:3001/api/user/login").then((response) => {
+      if(response.data.loggedIn === true){
+      setinfo(response.data.user);
+      };
     });
-
     return (
         <div>
         <div className="Section">
         <div className="box">
-            <h1 className="welcome">Hi {info},</h1>
+            <h1 className="welcome">Hi {info.username},</h1>
             <h2 className="sous-welcome1">Get offers from sellers for</h2>
             <h2 className="sous-welcome2">your project</h2>
             <button className="request">Post a Request</button>

@@ -2,17 +2,24 @@ import React from 'react'
 import "./MainPage.css";
 import NavBar from './NavBar';
 import Section from './Section';
-import { useLocation} from "react-router-dom";
 import ListGig from './ListGig'; 
+import Axios from "axios";
+import {Redirect} from 'react-router-dom';
+import {useState} from "react";
+
 
 
 function MainPage() {
-    const location = useLocation().state;
-    let email = location.email;
+    Axios.defaults.withCredentials = true;
+    Axios.get("http://localhost:3001/api/user/login").then((response) => {
+        if(response.data.loggedIn === false){
+            return <Redirect to="/signin"/>
+        }
+    });
     return (
         <div>
-            <NavBar props={email}/>
-            <Section props={email}/>
+            <NavBar/>
+            <Section/>
             <ListGig></ListGig>
         </div>
     )

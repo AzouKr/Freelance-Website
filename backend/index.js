@@ -4,16 +4,20 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+
 
 
 app.use(cors({
-    origin: "*",
+    origin: ["http://localhost:3000"],
+    methodes: ["GET","POST"],
+    credentials: true,
   }));
 
 
 // Import Routes
 const authRoute = require("./routes/auth");
-const createProfile = require('./routes/profile');
 const createGig = require('./routes/gig');
 const allGig = require('./routes/Get/allGigs');
 
@@ -32,12 +36,21 @@ mongoose.connect(process.env.DB_QUERY, {
 
 // Middleware
 app.use(express.json());
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
+app.use(session({
+    key:"userId",
+    secret: "airbus",
+    resave: false,
+    saveUninitialized: false,
+    cookie:{
+        expires: 60 * 60 * 100000000000000000000000000,
+    }
+}))
 
 
 // Route Middleware
 app.use("/api/user", authRoute);
-app.use("/api/", createProfile);
 app.use("/api/", createGig);
 app.use("/api/", allGig);
 

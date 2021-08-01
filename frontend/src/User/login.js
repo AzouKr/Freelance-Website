@@ -30,14 +30,13 @@ function Login() {
       password: password,
     }).then((response) => {
        setinfo(response.data);
+       history.push({
+       pathname: "/main",
+      });
     });
-    if(info.bool){
-      history.push({
-        pathname: "/main",
-        state: {email: email, auth: true},
-        });
-    }
   };
+
+ 
 
   return (
     <div class="login-page">
@@ -54,7 +53,7 @@ function Login() {
             }} placeholder="password" />
           <button onClick={signin}>login</button>
           <p class="message">Not registered? {link}</p>
-          <p style={{ color:"red"}}>{info.message}</p>
+          <p style={{ color:"red"}}>{info}</p>
         </form>
       </div>
     </div>

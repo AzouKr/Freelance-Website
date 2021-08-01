@@ -3,34 +3,35 @@ import "./Profile.css";
 import NavBar from "./NavBar";
 import {useState} from "react";
 import Axios from "axios";
-import { useLocation} from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import {Redirect} from 'react-router-dom';
+
+
 
 
 function Porfile() {
-  let history = useHistory();
-  const location = useLocation().state;
-  const email = location.email;
+
   const [info, setinfo] = useState([]);
   const [gig, setgig] = useState([]);
 
 
-  Axios.post("http://localhost:3001/api/profileinfo", {
-      email: email,
+  Axios.defaults.withCredentials = true;
+  Axios.get("http://localhost:3001/api/user/login").then((response) => {
+    setinfo(response.data);
+    if(!info.loggedin){
+      return <Redirect to="/signin"/>
+  }
+  });
+
+  Axios.post("http://localhost:3001/api/profilegig", {
+      email: info.user.email,
     }).then((response) => {
       setgig(response.data);
-    });
-
-    Axios.post("http://localhost:3001/api/profilegig", {
-      email: email,
-    }).then((response) => {
-      setinfo(response.data);
     });
 
     
 
     function display() {
-      return info.map((item) => {
+      return gig.map((item) => {
         return (
           <div class="card" style={{ width: "18rem" }}>       
             <img src={item.image1} class="card-img-top" alt="..." />
@@ -51,21 +52,13 @@ function Porfile() {
       });
     }
 
-    const home = (e) => {
-      e.preventDefault();
-      history.push({
-        pathname: "/main",
-        state: {email: email},
-        });
-    }
-
   return (
     <div>
       <NavBar></NavBar>
       <div className="porfile-section">
       <div className="go-home">
       <i class="fa fa-arrow-left" aria-hidden="true"></i>
-      <h1 className="go" onClick={home} >Go back To Homepage</h1>
+      <h1 className="go" >Go back To Homepage</h1>
       </div>
         <div className="profile-box">
           <img
@@ -73,17 +66,17 @@ function Porfile() {
             alt="Avatar"
             className="profile-img"
           ></img>
-          <h1 className="profile-name">{gig.name} {gig.surname}</h1>
+          <h1 className="profile-name">{info.user.username}</h1>
           <div className="profile-info">
             <div className="from">
               <i class="fa fa-globe" aria-hidden="true"></i>
               <h1 className="country-from">From</h1>
-              <h1 className="country">{gig.country}</h1>
+              <h1 className="country">{info.user.country}</h1>
             </div>
             <div className="membre">
               <i class="fa fa-calendar" aria-hidden="true"></i>
               <h1 className="country-from">Member since</h1>
-              <h1 className="Date">{gig.Date}</h1>
+              <h1 className="Date">{info.user.date}</h1>
             </div>
           </div>
         </div>

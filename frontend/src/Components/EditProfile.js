@@ -13,8 +13,6 @@ function EditProfile() {
     let history = useHistory();
     const location = useLocation().state;
     const [startDate, setStartDate] = useState(new Date());
-    const [name, setname] = useState("");
-    const [surname, setsurname] = useState("");
     const [mobile, setmobile] = useState(0);
     const [adresse, setadresse] = useState("");
     const [country, setcountry] = useState("");
@@ -25,12 +23,13 @@ function EditProfile() {
     const [website, setwebsite] = useState("");
     const [info, setinfo] = useState([]);
 
+    console.log(location);
     const register = (e) => {
         e.preventDefault();
-        Axios.post("http://localhost:3001/api/profile", {
+        Axios.post("http://localhost:3001/api/user/register", {
+          username: location.username,
           email: location.email,
-          name: name,
-          surname: surname,
+          password: location.password,
           mobile: mobile,
           adresse: adresse,
           date_birth: startDate,
@@ -43,9 +42,9 @@ function EditProfile() {
           
         }).then((response) => {
           setinfo(response.data);
+          console.log(info);
           history.push({
-            pathname: "/main",
-            state: {email: location.email, auth: true},
+            pathname: "/signin",
             });
         });
       };
@@ -59,10 +58,6 @@ function EditProfile() {
             <div className="p-3 py-5">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                     <h4 className="text-right">Profile Settings</h4>
-                </div>
-                <div className="row mt-2">
-                    <div className="col-md-6"><label className="labels">Name</label><input type="text" onChange={(e) => { setname(e.target.value); }} className="form-control" placeholder="first name" /></div>
-                    <div className="col-md-6"><label className="labels">Surname</label><input type="text" onChange={(e) => { setsurname(e.target.value); }} className="form-control" placeholder="surname"/></div>
                 </div>
                 <div className="row mt-3">
                     <div className="col-md-12"><label className="labels">Mobile Number</label><input type="text" onChange={(e) => { setmobile(e.target.value); }} className="form-control" placeholder="enter phone number" /></div>

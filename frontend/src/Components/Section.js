@@ -5,51 +5,48 @@ import { useHistory } from "react-router-dom";
 
 
 
-function Section({props}) {
-
+function Section() {
     let history = useHistory();
-    const useremail=props;
-
     const graphic = (e) => {
         e.preventDefault();
         history.push({
             pathname: "/main/gigs",
-            state: {email: useremail, type: "Graphics & Design"},
+            state: {type: "Graphics & Design"},
             });
       }
       const digital = (e) => {
         e.preventDefault();
         history.push({
           pathname: "/main/gigs",
-          state: {email: useremail, type: "Digital Marketing"},
+          state: {type: "Digital Marketing"},
           });
       }
       const writing = (e) => {
         e.preventDefault();
         history.push({
           pathname: "/main/gigs",
-          state: {email: useremail, type: "Writing & Translation"},
+          state: {type: "Writing & Translation"},
           });
       }
       const video = (e) => {
         e.preventDefault();
         history.push({
           pathname: "/main/gigs",
-          state: {email: useremail, type: "Video & Animation"},
+          state: {type: "Video & Animation"},
           });
       }
       const music = (e) => {
         e.preventDefault();
         history.push({
           pathname: "/main/gigs",
-          state: {email: useremail, type: "Music & Audio"},
+          state: { type: "Music & Audio"},
           });
       }
       const programming = (e) => {
         e.preventDefault();
         history.push({
           pathname: "/main/gigs",
-          state: {email: useremail, type: "Programming & Tech"},
+          state: {type: "Programming & Tech"},
           });
       }
     return (
@@ -64,7 +61,7 @@ function Section({props}) {
                 <li className="navIt" onClick={programming}>Programming & Tech</li>
             </ul>
         </div>     
-        <Adsection prop={useremail}/>
+        <Adsection/>
         </div>
     )
 }

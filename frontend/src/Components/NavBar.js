@@ -4,15 +4,13 @@ import logo from "../img/treva.png";
 import { useHistory } from "react-router-dom";
 
 
-function NavBar({ props }) {
+function NavBar() {
   let history = useHistory();
-  const email = props;
 
   const profile = (e) => {
     e.preventDefault();
     history.push({
       pathname: "/profile",
-      state: {email: email, auth: true},
       });
   }
 
@@ -20,7 +18,6 @@ function NavBar({ props }) {
     e.preventDefault();
     history.push({
       pathname: "/main",
-      state: {email: email, auth: true},
       });
   }
 
