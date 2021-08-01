@@ -16,7 +16,7 @@ function GigDisplay() {
     const { title } = useParams();
     const [info, setinfo] = useState([]);
 
-    Axios.get("https://freelance-web.herokuapp.com/api/allgigs").then((response) => {
+    Axios.get("http://localhost:3001/api/allgigs").then((response) => {
       setinfo(response.data);
     });
 

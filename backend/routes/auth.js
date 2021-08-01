@@ -65,9 +65,9 @@ router.post("/login", async (req, res) => {
   // Create and assign a token
   const token = jwt.sign({ _id: user._id }, process.env.Token_Secret);
   res.header("auth-token", token);
-
   req.session.user = user;
-  await res.send("You are succesfully logged in");
+  res.send("Youa are loggedIn");
+
 });
 
 router.get("/login", async (req, res) => {
@@ -76,6 +76,11 @@ router.get("/login", async (req, res) => {
   } else {
     await res.send({ loggedIn: false });
   }
+});
+
+router.get('/logout',(req,res) => {
+  req.session = null;
+  res.send("logout");
 });
 
 module.exports = router;

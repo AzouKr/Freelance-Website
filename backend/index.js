@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const session = require("express-session");
+const session = require("cookie-session");
 
 
 
@@ -36,14 +36,13 @@ mongoose.connect(process.env.DB_QUERY, {
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
+const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({
-    key:"userId",
     secret: "airbus",
-    resave: false,
-    saveUninitialized: false,
-    maxAge: 24 * 60 * 60 * 1000
+    cookie: { maxAge: oneDay },
 }))
 
 

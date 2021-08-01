@@ -12,7 +12,7 @@ function Adsection () {
   const [info, setinfo] = useState([]);
   Axios.defaults.withCredentials = true;
 
-    Axios.get("https://freelance-web.herokuapp.com/api/user/login").then((response) => {
+    Axios.get("http://localhost:3001/api/user/login").then((response) => {
       if(response.data.loggedIn === false){
         history.push("/signin");
       }else{

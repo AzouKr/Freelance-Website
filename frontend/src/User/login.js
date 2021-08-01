@@ -22,21 +22,17 @@ function Login() {
   const [password, setpassword] = useState("");
   const [info, setinfo] = useState([]);
 
-
   const signin  = (e)  => {
     e.preventDefault();
-    Axios.post("https://freelance-web.herokuapp.com/api/user/login", {
+    Axios.post("http://localhost:3001/api/user/login", {
       email: email,
       password: password,
     }).then((response) => {
        setinfo(response.data);
-       history.push({
-       pathname: "/main",
       });
-    });
+      history.push("/main");
   };
 
- 
 
   return (
     <div class="login-page">
