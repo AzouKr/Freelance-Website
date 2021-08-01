@@ -12,7 +12,7 @@ function Login() {
   let history = useHistory();
   let link = (
     <a
-      href="http://localhost:3000/signup"
+      href="https://freelance-web.herokuapp.com/signup"
       rel="noopener noreferrer"
     >
       Create an account
@@ -25,7 +25,7 @@ function Login() {
 
   const signin  = (e)  => {
     e.preventDefault();
-    Axios.post("http://localhost:3001/api/user/login", {
+    Axios.post("https://freelance-web.herokuapp.com/api/user/login", {
       email: email,
       password: password,
     }).then((response) => {

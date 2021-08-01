@@ -8,7 +8,7 @@ import background4 from "../img/Group247.png";
 function Register() {
   let history = useHistory();
   let link = (
-    <a href="http://localhost:3000/signin" rel="noopener noreferrer">
+    <a href="https://freelance-web.herokuapp.com/signin" rel="noopener noreferrer">
       Log In
     </a>
   );

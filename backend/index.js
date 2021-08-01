@@ -43,9 +43,7 @@ app.use(session({
     secret: "airbus",
     resave: false,
     saveUninitialized: false,
-    cookie:{
-        expires: 60 * 60 * 100000000000000000000000000,
-    }
+    maxAge: 24 * 60 * 60 * 1000
 }))
 
 
@@ -55,4 +53,4 @@ app.use("/api/", createGig);
 app.use("/api/", allGig);
 
 
-app.listen(3001, () => console.log("Server is Up and Running"));
+app.listen( process.env.PORT || 3001, () => console.log("Server is Up and Running"));

@@ -26,7 +26,7 @@ function EditProfile() {
     console.log(location);
     const register = (e) => {
         e.preventDefault();
-        Axios.post("http://localhost:3001/api/user/register", {
+        Axios.post("https://freelance-web.herokuapp.com/api/user/register", {
           username: location.username,
           email: location.email,
           password: location.password,

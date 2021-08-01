@@ -15,14 +15,14 @@ function Porfile() {
 
 
   Axios.defaults.withCredentials = true;
-  Axios.get("http://localhost:3001/api/user/login").then((response) => {
+  Axios.get("https://freelance-web.herokuapp.com/api/user/login").then((response) => {
     setinfo(response.data);
     if(!info.loggedin){
       return <Redirect to="/signin"/>
   }
   });
 
-  Axios.post("http://localhost:3001/api/profilegig", {
+  Axios.post("https://freelance-web.herokuapp.com/api/profilegig", {
       email: info.user.email,
     }).then((response) => {
       setgig(response.data);

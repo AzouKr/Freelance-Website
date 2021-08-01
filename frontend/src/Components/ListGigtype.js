@@ -14,7 +14,7 @@ function ListGig() {
   const [info, setinfo] = useState([]);
   const location = useLocation().state;
 
-    Axios.post("http://localhost:3001/api/typegig", {
+    Axios.post("https://freelance-web.herokuapp.com/api/typegig", {
       type: location.type,
     }).then((response) => {
       setinfo(response.data);

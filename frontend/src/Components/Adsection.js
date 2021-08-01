@@ -3,16 +3,21 @@ import "./Adsection.css";
 import slideshow from "../img/slideshow.gif";
 import {useState} from "react";
 import Axios from "axios";
+import { useHistory } from 'react-router-dom';
+
 
 function Adsection () {
 
+  let history = useHistory();
   const [info, setinfo] = useState([]);
   Axios.defaults.withCredentials = true;
 
-    Axios.get("http://localhost:3001/api/user/login").then((response) => {
-      if(response.data.loggedIn === true){
+    Axios.get("https://freelance-web.herokuapp.com/api/user/login").then((response) => {
+      if(response.data.loggedIn === false){
+        history.push("/signin");
+      }else{
       setinfo(response.data.user);
-      };
+      }
     });
     return (
         <div>
