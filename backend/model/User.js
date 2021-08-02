@@ -39,6 +39,18 @@ const UserSchema = new  mongoose.Schema({
       type: String,
       required: true,
   },
+  skills:{
+      type: String,
+      required: true,
+  },
+  education:{
+      type: String,
+      required: true,
+  },
+  description:{
+      type: String,
+      required: true,
+  },
   facebook:{
       type: String,
       default: "null",

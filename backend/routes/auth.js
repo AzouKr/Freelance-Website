@@ -34,6 +34,9 @@ router.post("/register", async (req, res) => {
     date: req.body.date,
     country: req.body.country,
     region: req.body.region,
+    skills: req.body.skills,
+    education: req.body.education,
+    description: req.body.description,
     facebook: req.body.facebook,
     twitter: req.body.twitter,
     instagram: req.body.instagram,
@@ -59,7 +62,7 @@ router.post("/login", async (req, res) => {
   if (!user) return res.send({message: "Email doesn't exist", bool: false});
   // Checking if password correct
   const validPass = await bcrypt.compare(req.body.password, user.password);
-  if (!validPass) return res.send({message: "Invalid Email", bool: false});
+  if (!validPass) return res.send({message: "Invalid password", bool: false});
 
   // Create and assign a token
   const token = jwt.sign({ _id: user._id }, process.env.Token_Secret);
