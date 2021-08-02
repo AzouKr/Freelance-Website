@@ -1,5 +1,4 @@
 import React from 'react'
-import Adsection from './Adsection';
 import "./Section.css";
 import { useHistory } from "react-router-dom";
 
@@ -61,7 +60,6 @@ function Section() {
                 <li className="navIt" onClick={programming}>Programming & Tech</li>
             </ul>
         </div>     
-        <Adsection/>
         </div>
     )
 }

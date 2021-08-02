@@ -3,6 +3,7 @@ import "./Profile.css";
 import NavBar from "./NavBar";
 import { useState } from "react";
 import Axios from "axios";
+import Section from "./Section";
 import { useHistory } from "react-router-dom";
 
 function Porfile() {
@@ -10,11 +11,48 @@ function Porfile() {
   const [gig, setgig] = useState([]);
   let history = useHistory();
 
+  let link1 = (
+    <a
+      href={info.facebook}
+      rel="noopener noreferrer"
+      style={{ textDecoration: "none", color: "#548CA8" }}
+    >
+      Facebook
+    </a>
+  );
+  let link2 = (
+    <a
+      href={info.twitter}
+      rel="noopener noreferrer"
+      style={{ textDecoration: "none", color: "#548CA8" }}
+    >
+      Twitter
+    </a>
+  );
+  let link3 = (
+    <a
+      href={info.instagram}
+      rel="noopener noreferrer"
+      style={{ textDecoration: "none", color: "#548CA8" }}
+    >
+      instagram
+    </a>
+  );
+  let link4 = (
+    <a
+      href={info.website}
+      rel="noopener noreferrer"
+      style={{ textDecoration: "none", color: "#548CA8" }}
+    >
+      Website
+    </a>
+  );
+
   Axios.defaults.withCredentials = true;
   Axios.get("http://localhost:3001/api/user/login").then((response) => {
     if (response.data.loggedIn === false) {
       history.push("/signin");
-    }else{
+    } else {
       setinfo(response.data.user);
     }
   });
@@ -48,34 +86,52 @@ function Porfile() {
   return (
     <div>
       <NavBar></NavBar>
-      <div className="porfile-section">
-        <div className="go-home">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
-          <h1 className="go">Go back To Homepage</h1>
-        </div>
-        <div className="profile-box">
-          <img
-            src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png"
-            alt="Avatar"
-            className="profile-img"
-          ></img>
-          <h1 className="profile-name">{info.username}</h1>
-          <div className="profile-info">
-            <div className="from">
-              <i class="fa fa-globe" aria-hidden="true"></i>
-              <h1 className="country-from">From</h1>
-              <h1 className="country">{info.country}</h1>
+      <Section />
+      <div className="profile-body">
+        <div className="porfile-section">
+          <div className="go-home">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <h1 className="go">Go back To Homepage</h1>
+          </div>
+          <div>
+            <div className="profile-box">
+              <img
+                src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png"
+                alt="Avatar"
+                className="profile-img"
+              ></img>
+              <h1 className="profile-name">{info.username}</h1>
+              <div className="profile-info">
+                <div className="from">
+                  <i class="fa fa-globe" aria-hidden="true"></i>
+                  <h1 className="country-from">From</h1>
+                  <h1 className="country">{info.country}</h1>
+                </div>
+                <div className="membre">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                  <h1 className="country-from">Member since</h1>
+                  <h1 className="Date">{info.date}</h1>
+                </div>
+              </div>
             </div>
-            <div className="membre">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <h1 className="country-from">Member since</h1>
-              <h1 className="Date">{info.date}</h1>
+            <div className="profile-desc-info">
+              <h1 className="Description-title">Description</h1>
+              <p className="Description-text">{info.description}</p>
+              <h1 className="Description-links">Linked Accounts</h1>
+              <h2 className="facebook-link">{link1}</h2>
+              <h2 className="facebook-link">{link2}</h2>
+              <h2 className="facebook-link">{link3}</h2>
+              <h2 className="facebook-link">{link4}</h2>
+              <h1 className="Description-skills">Skills</h1>
+              <p className="Description-skills-desc">{info.skills}</p>
+              <h1 className="Description-skills">Education</h1>
+              <p className="Description-skills-desc">{info.education}</p>
             </div>
           </div>
-        </div>
-        <div className="My-gigs">
-          <h1>My Gigs</h1>
-          <div className="My-Gigs">{display()}</div>
+          <div className="My-gigs">
+            <h1>My Gigs</h1>
+            <div className="My-Gigs">{display()}</div>
+          </div>
         </div>
       </div>
     </div>

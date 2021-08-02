@@ -13,7 +13,7 @@ function Login() {
   let history = useHistory();
   let link = (
     <a
-      href="https://freelance-web.herokuapp.com/signup"
+      href="http://localhost:3000/signup"
       rel="noopener noreferrer"
     >
       Create an account

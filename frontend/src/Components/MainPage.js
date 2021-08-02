@@ -4,6 +4,8 @@ import NavBar from './NavBar';
 import Section from './Section';
 import ListGig from './ListGig'; 
 import {Redirect} from 'react-router-dom';
+import Adsection from './Adsection';
+
 
 
 
@@ -12,6 +14,7 @@ function MainPage() {
         <div>
             <NavBar/>
             <Section/>
+            <Adsection/>
             <ListGig></ListGig>
         </div>
     )

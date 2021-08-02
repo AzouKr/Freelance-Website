@@ -1,3 +1,10 @@
+.profile-body{
+    background-color: red;
+    height: 130vh;
+    width: 99.1vw;
+    background-color: #f7f7f7;
+}
+
 .porfile-section{
     position: absolute;
     margin: 30px 260px 0px 280px;
@@ -8,9 +15,10 @@
 .profile-box{
     position: relative;
     height: 427px;
+    background-color: white;
     width: 400px;
-    background-color: #EEEEEE;
     top: 80px;
+    border: 1px solid #787A91;
 }
 
 .profile-img{
@@ -110,4 +118,83 @@
 
 .go:hover{
     cursor: pointer;
+}
+
+.profile-desc-info{
+    position: relative;
+    height: 600px;
+    width: 400px;
+    background-color: white;
+    top: 130px;
+    border: 1px solid #787A91;
+}
+
+.Description-title{
+    position: relative;
+    color: #0e0e0f;
+    font-size: 16px;
+    font-weight: 700;
+    left: 30px;
+    top: 20px;
+
+}
+
+
+.Description-text{
+    position: relative;
+    width: 330px;
+    top: 20px;
+    left: 30px;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: capitalize;
+    font-weight: 400;
+    color: #555;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.Description-links{
+    position: relative;
+    color: #0e0e0f;
+    font-size: 16px;
+    font-weight: 700;
+    left: 30px;
+    top: 20px;
+
+}
+
+.facebook-link{
+    position: relative;
+    color: #548CA8;
+    font-weight: 700;
+    font-size: 16px;
+    left: 50px;
+    top: 20px;
+    
+}
+
+.Description-skills{
+    position: relative;
+    color: #0e0e0f;
+    font-size: 16px;
+    margin-right: 70px;
+    font-weight: 700;
+    left: 30px;
+    top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(117, 114, 114);
+}
+
+.Description-skills-desc{
+    position: relative;
+    width: 330px;
+    top: 40px;
+    left: 30px;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: capitalize;
+    font-weight: 400;
+    color: #555;
+    padding-bottom: 20px;
 }
