@@ -8,7 +8,7 @@ const registerValidation = (data) => {
       mobile: Joi.number().required(),
       adresse: Joi.string().required(),
       date_birth: Joi.date().required(),
-      date: Joi.date().required(),
+      date: Joi.date(),
       country: Joi.string().required(),
       region: Joi.string().required(),
       skills: Joi.string().required(),
@@ -18,6 +18,7 @@ const registerValidation = (data) => {
       twitter: Joi.string().required(),
       instagram: Joi.string().required(),
       website: Joi.string().required(),
+      image: Joi.string(),
     })
       return Schema.validate(data);
 }

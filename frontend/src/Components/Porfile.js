@@ -96,7 +96,7 @@ function Porfile() {
           <div>
             <div className="profile-box">
               <img
-                src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png"
+                src={info.image}
                 alt="Avatar"
                 className="profile-img"
               ></img>

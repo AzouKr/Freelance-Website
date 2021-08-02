@@ -41,3 +41,24 @@
     cursor: pointer;
     border: solid 1px #BA68C8
 }
+
+
+.imageuploader{
+    position: absolute;
+    left: 100px;
+    top: 25rem;
+}
+
+.image-upload{
+    position: absolute;
+    font-size: 25px;
+    left: 130px;
+}
+
+.mt-3{
+    margin-bottom: 20px;
+}
+
+.desc{
+    height: 200px;
+}

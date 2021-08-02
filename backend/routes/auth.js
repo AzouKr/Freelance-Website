@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const User = require("../model/User");
 const session = require("express-session");
+const verify = require('../middlewares/verifyToken');
+
 const {
   registerValidation,
   loginValidation,
@@ -12,12 +14,12 @@ const jwt = require("jsonwebtoken");
 router.post("/register", async (req, res) => {
   // Validate data
   const { error } = registerValidation(req.body);
-  if (error) return res.send(error.details[0].message);
+  if (error) return res.send({message: error.details[0].message, bool: false});
 
   // Checking if the user is already in the database
   const emailExist = await User.findOne({ email: req.body.email });
   if (emailExist)
-    return res.send("Email is already exist");
+    return res.send({message: "Email is already exist", bool: false});
 
   // Hash the password
   const salt = await bcrypt.genSalt(10);
@@ -41,10 +43,11 @@ router.post("/register", async (req, res) => {
     twitter: req.body.twitter,
     instagram: req.body.instagram,
     website: req.body.website,
+    image: req.body.image,
   });
   try {
     await user.save();
-    res.send("You are successfuly registred");
+    res.send({message: "You are successfuly registred", bool: true});
   } catch (err) {
     res.status(400).send(err);
   }
@@ -67,12 +70,13 @@ router.post("/login", async (req, res) => {
   // Create and assign a token
   const token = jwt.sign({ _id: user._id }, process.env.Token_Secret);
   res.header("auth-token", token);
+  req.session.token = token;
   req.session.user = user;
   res.send({message: " ", bool: true});
 
 });
 
-router.get("/login", async (req, res) => {
+router.get("/login", verify, async (req, res) => {
   if (req.session.user) {
    await res.send({ loggedIn: true, user: req.session.user});
   } else {

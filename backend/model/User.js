@@ -1,72 +1,75 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const UserSchema = new  mongoose.Schema({
-    username:{
-      type: String,
-      required: true,
-    },
-    email:{
-      type: String,
-      required: true,
-      min:6,
-    },
-    password:{
-      type: String,
-      required: true,
-      min:6,
-    },
-    mobile:{
-      type: Number,
-      required: true,
+const UserSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
   },
-  adresse:{
-      type: String,
-      required: true,
+  email: {
+    type: String,
+    required: true,
+    min: 6,
   },
-  date_birth:{
-      type: Date,
-      required: true,
+  password: {
+    type: String,
+    required: true,
+    min: 6,
   },
-  Date:{
-      type: Date,
-      default: Date.now,
+  mobile: {
+    type: Number,
+    required: true,
   },
-  country:{
-      type: String,
-      required: true,
+  adresse: {
+    type: String,
+    required: true,
   },
-  region:{
-      type: String,
-      required: true,
+  date_birth: {
+    type: Date,
+    required: true,
   },
-  skills:{
-      type: String,
-      required: true,
+  Date: {
+    type: Date,
+    default: Date.now,
   },
-  education:{
-      type: String,
-      required: true,
+  country: {
+    type: String,
+    required: true,
   },
-  description:{
-      type: String,
-      required: true,
+  region: {
+    type: String,
+    required: true,
   },
-  facebook:{
-      type: String,
-      default: "null",
+  skills: {
+    type: String,
+    required: true,
   },
-  twitter:{
-      type: String,
-      default: "null",
+  education: {
+    type: String,
+    required: true,
   },
-  instagram:{
-      type: String,
-      default: "null",
+  description: {
+    type: String,
+    required: true,
   },
-  website:{
-      type: String,
-      default: "null",
+  facebook: {
+    type: String,
+    default: "null",
   },
-  });
+  twitter: {
+    type: String,
+    default: "null",
+  },
+  instagram: {
+    type: String,
+    default: "null",
+  },
+  website: {
+    type: String,
+    default: "null",
+  },
+  image: {
+    type: String,
+  },
+});
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);
