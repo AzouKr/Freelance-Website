@@ -6,6 +6,8 @@ import { useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useHistory } from "react-router-dom";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 function EditProfile() {
   let history = useHistory();
@@ -162,7 +164,7 @@ function EditProfile() {
                   setskills(e.target.value);
                 }}
                 className="form-control"
-                placeholder="enter phone number"
+                placeholder="Skills"
               />
               <label className="labels">Education</label>
               <input
@@ -171,16 +173,19 @@ function EditProfile() {
                   seteducation(e.target.value);
                 }}
                 className="form-control"
-                placeholder="enter phone number"
+                placeholder="Education"
               />
               <label className="labels">Description</label>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setdescription(e.target.value);
-                }}
-                className="form-control desc"
-              />
+              <div className="editor">
+                <CKEditor
+                  editor={ ClassicEditor }
+                  data={description}
+                  onChange={(e, editor) =>{
+                    const data = editor.getData();
+                    setdescription(data);
+                  }}
+                />
+              </div>
           <br />
           *Not Required*
           <div className="col-md-12">

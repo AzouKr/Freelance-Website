@@ -15,13 +15,20 @@ function GigDisplay() {
     
     const { title } = useParams();
     const [info, setinfo] = useState([]);
+    const [gig, setgig] = useState([]);
+
 
     Axios.get("http://localhost:3001/api/allgigs").then((response) => {
       setinfo(response.data);
     });
 
+  
+
     function display() {
         return info.filter(item => item.title === title).map((item) => {
+          var HtmlToReactParser = require('html-to-react').Parser;
+         var htmlToReactParser = new HtmlToReactParser();
+         var reactElement = htmlToReactParser.parse(item.description);
           return (
             <div className="gig-info">
         <h1 className="gig-title">
@@ -41,7 +48,7 @@ function GigDisplay() {
           <div data-src={item.image3} />
         </AwesomeSlider>
         <h1 className="About">About This Gig</h1>
-        <p className="gig-desc">{item.description}</p>
+        <p className="gig-desc">{reactElement}</p>
       </div>
           );
         });

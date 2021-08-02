@@ -6,10 +6,17 @@ import Axios from "axios";
 import Section from "./Section";
 import { useHistory } from "react-router-dom";
 
+
+
+
 function Porfile() {
   const [info, setinfo] = useState([]);
   const [gig, setgig] = useState([]);
   let history = useHistory();
+  
+  var HtmlToReactParser = require('html-to-react').Parser;
+  var htmlToReactParser = new HtmlToReactParser();
+  var reactElement = htmlToReactParser.parse(info.description);
 
   let link1 = (
     <a
@@ -116,7 +123,7 @@ function Porfile() {
             </div>
             <div className="profile-desc-info">
               <h1 className="Description-title">Description</h1>
-              <p className="Description-text">{info.description}</p>
+              <p className="Description-text">{reactElement}</p>
               <h1 className="Description-links">Linked Accounts</h1>
               <h2 className="facebook-link">{link1}</h2>
               <h2 className="facebook-link">{link2}</h2>
