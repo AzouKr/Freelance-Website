@@ -11,8 +11,8 @@ const jwt = require('jsonwebtoken');
 router.post("/Creategig", async (req, res) => {
 
     // // Validate data
-    // const { error } = gigValidation(req.body);
-    // if (error) return res.send({message: error.details[0].message, bool: false});
+    const { error } = gigValidation(req.body);
+    if (error) return res.send({message: error.details[0].message, bool: false});
   
     
     // Create a new Profile

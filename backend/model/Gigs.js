@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const GigsSchema = new  mongoose.Schema({
   email:{
     type: String,
+    required: true,
   },
     title:{
       type: String,
@@ -10,12 +11,15 @@ const GigsSchema = new  mongoose.Schema({
     },
     image1:{
       type: String,
+      required: true,
     },
     image2:{
         type: String,
+        required: true,
       },
       image3:{
         type: String,
+        required: true,
       },
     description:{
       type: String,
@@ -27,6 +31,7 @@ const GigsSchema = new  mongoose.Schema({
     },
     type:{
       type: String,
+      required: true,
     },
   });
 

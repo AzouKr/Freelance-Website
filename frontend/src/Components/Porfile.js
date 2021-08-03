@@ -4,7 +4,8 @@ import NavBar from "./NavBar";
 import { useState } from "react";
 import Axios from "axios";
 import Section from "./Section";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import Footer from "./Footer";
 
 
 
@@ -79,9 +80,11 @@ function Porfile() {
             <h5 class="card-title">{item.title}</h5>
             <p class="card-text">{item.description.substring(0, 50)}</p>
             <div className="bottom">
-              <a href="#" class="btn btn-gig">
-                Go Ordre It
-              </a>
+            <Link to={`/main/gig/${item.title}`}>
+                <a href="#" class="btn btn-gig">
+                  Go Ordre It
+                </a>
+                </Link>
               <h1 className="price">STARTING AT ${item.price}</h1>
             </div>
           </div>
@@ -141,6 +144,7 @@ function Porfile() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

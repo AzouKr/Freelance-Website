@@ -3,7 +3,7 @@ import "./Adsection.css";
 import slideshow from "../img/slideshow.gif";
 import {useState} from "react";
 import Axios from "axios";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 
 function Adsection () {
@@ -26,7 +26,9 @@ function Adsection () {
             <h1 className="welcome">Hi {info.username},</h1>
             <h2 className="sous-welcome1">Get offers from sellers for</h2>
             <h2 className="sous-welcome2">your project</h2>
+            <Link to="/main/createGig">
             <button className="request">Post a Request</button>
+            </Link>
         </div>
         <div className="slideshow">
         <img src={slideshow} alt="Slideshow" className="Slide" />

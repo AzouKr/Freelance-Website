@@ -6,9 +6,9 @@ import { useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useHistory } from "react-router-dom";
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import UploadClient from '@uploadcare/upload-client'
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import UploadClient from "@uploadcare/upload-client";
 
 function EditProfile() {
   let history = useHistory();
@@ -29,14 +29,8 @@ function EditProfile() {
   const [image, setimage] = useState("");
   const [url, seturl] = useState("");
 
-
   const register = (e) => {
     e.preventDefault();
-
-    const client = new UploadClient({ publicKey: '0074a132b6c1cd126d61' })
-    client.uploadFile(image).then((response) =>{
-      seturl(response.cdnUrl);
-    });
 
     Axios.post("http://localhost:3001/api/user/register", {
       username: location.username,
@@ -58,15 +52,24 @@ function EditProfile() {
       image: url,
     }).then((response) => {
       setinfo(response.data);
-      if(!info.bool){
-      history.push({
-        pathname: "/signin",
-      });
-    }else{
+      if (!info.bool) {
+        history.push({
+          pathname: "/signin",
+        });
+      } else {
         console.log(info.message);
-    }
+      }
     });
   };
+
+  const upload = (e) => {
+    e.preventDefault();
+    const client = new UploadClient({ publicKey: "0074a132b6c1cd126d61" });
+    client.uploadFile(image).then((response) => {
+      seturl(response.cdnUrl);
+    });
+  };
+
 
   return (
     <div className="row">
@@ -76,7 +79,7 @@ function EditProfile() {
             className="rounded-circle mt-5"
             alt="profile"
             width="150px"
-            src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+            src={url}
           />
           <span className="font-weight-bold">{location.nom}</span>
           <span className="text-black-50">{location.email}</span>
@@ -90,6 +93,10 @@ function EditProfile() {
             setimage(event.target.files[0]);
           }}
         />
+
+        <button className="photo-sumbit1" onClick={upload}>
+          Upload
+        </button>
       </div>
       <div className="col-md-5 border-right">
         <div className="p-3 py-5">
@@ -152,40 +159,39 @@ function EditProfile() {
                 placeholder="state"
               />
             </div>
-            
           </div>
           <label className="labels">Skills</label>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setskills(e.target.value);
-                }}
-                className="form-control"
-                placeholder="Skills"
-              />
-              <label className="labels">Education</label>
-              <input
-                type="text"
-                onChange={(e) => {
-                  seteducation(e.target.value);
-                }}
-                className="form-control"
-                placeholder="Education"
-              />
-              <label className="labels">Description</label>
-              <div className="editor">
-                <CKEditor
-                  editor={ ClassicEditor }
-                  data={description}
-                  onChange={(e, editor) =>{
-                    const data = editor.getData();
-                    setdescription(data);
-                  }}
-                />
-              </div>
+          <input
+            type="text"
+            onChange={(e) => {
+              setskills(e.target.value);
+            }}
+            className="form-control"
+            placeholder="Skills"
+          />
+          <label className="labels">Education</label>
+          <input
+            type="text"
+            onChange={(e) => {
+              seteducation(e.target.value);
+            }}
+            className="form-control"
+            placeholder="Education"
+          />
+          <label className="labels">Description</label>
+          <div className="editor1">
+            <CKEditor
+              editor={ClassicEditor}
+              data={description}
+              onChange={(e, editor) => {
+                const data = editor.getData();
+                setdescription(data);
+              }}
+            />
+          </div>
           <br />
           *Not Required*
-          <div className="col-md-12">
+          <div className="col-md-12 social">
             <label className="labels">Facebook Account</label>
             <input
               type="text"
@@ -196,7 +202,7 @@ function EditProfile() {
               placeholder="enter the link here"
             />
           </div>
-          <div className="col-md-12">
+          <div className="col-md-12 social">
             <label className="labels">Twitter Account</label>
             <input
               type="text"
@@ -207,7 +213,7 @@ function EditProfile() {
               placeholder="enter the link here"
             />
           </div>
-          <div className="col-md-12">
+          <div className="col-md-12 social">
             <label className="labels">Instagram Account</label>
             <input
               type="text"
@@ -218,7 +224,7 @@ function EditProfile() {
               placeholder="enter the link here"
             />
           </div>
-          <div className="col-md-12">
+          <div className="col-md-12 social">
             <label className="labels">Your Website</label>
             <input
               type="text"
@@ -230,13 +236,9 @@ function EditProfile() {
             />
           </div>
           <div className="mt-5 text-center">
-            <button
-              onClick={register}
-              className="btn btn-primary profile-button"
-              type="button"
-            >
-              Save Profile
-            </button>
+            <button className="photo-sumbit2" onClick={register}>
+          Sumbit
+        </button>
           </div>
         </div>
       </div>

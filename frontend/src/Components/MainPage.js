@@ -3,8 +3,8 @@ import "./MainPage.css";
 import NavBar from './NavBar';
 import Section from './Section';
 import ListGig from './ListGig'; 
-import {Redirect} from 'react-router-dom';
 import Adsection from './Adsection';
+import Footer from './Footer';
 
 
 

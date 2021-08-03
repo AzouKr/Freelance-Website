@@ -15,7 +15,6 @@ function GigDisplay() {
     
     const { title } = useParams();
     const [info, setinfo] = useState([]);
-    const [gig, setgig] = useState([]);
 
 
     Axios.get("http://localhost:3001/api/allgigs").then((response) => {
@@ -123,7 +122,7 @@ function GigDisplay() {
         </div>
         <div className="offer-title">
           <h1 className="offer-title-h1">Ready Made Make Money Online Store</h1>
-          <h1 className="offer-price">$195</h1>
+          <h1 className="offer-price">$100</h1>
         </div>
         <p className="offer-desc">
           Includes 3x Ebooks to sell with master resell rights

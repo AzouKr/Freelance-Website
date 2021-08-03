@@ -7,7 +7,8 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useState } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
-import UploadClient from '@uploadcare/upload-client'
+import UploadClient from "@uploadcare/upload-client";
+import Footer from "./Footer";
 
 
 function CreateGig() {
@@ -25,33 +26,28 @@ function CreateGig() {
   const [info, setinfo] = useState([]);
   const [err, seterr] = useState([]);
 
-  
+  const upload = (e) => {
+    e.preventDefault();
+    const client = new UploadClient({ publicKey: "0074a132b6c1cd126d61" });
+    client.uploadFile(image1).then((response) => {
+      seturl1(response.cdnUrl);
+    });
+    client.uploadFile(image2).then((response) => {
+      seturl2(response.cdnUrl);
+    });
+
+    client.uploadFile(image3).then((response) => {
+      seturl3(response.cdnUrl);
+    });
+  };
 
   const create = (e) => {
     e.preventDefault();
 
     Axios.defaults.withCredentials = true;
     Axios.get("http://localhost:3001/api/user/login").then((response) => {
-      if (response.data.loggedIn === false) {
-        history.push("/signin");
-      } else {
-        setinfo(response.data.user);
-      }
+      setinfo(response.data.user);
     });
-
-    const client = new UploadClient({ publicKey: '0074a132b6c1cd126d61' })
-    client.uploadFile(image1).then((response) =>{
-      seturl1(response.cdnUrl);
-    });
-
-    client.uploadFile(image2).then((response) =>{
-      seturl2(response.cdnUrl);
-    });
-
-    client.uploadFile(image3).then((response) =>{
-      seturl3(response.cdnUrl);
-    });
-
     Axios.post("http://localhost:3001/api/Creategig", {
       email: info.email,
       title: title,
@@ -63,15 +59,17 @@ function CreateGig() {
       type: category,
     }).then((response) => {
       seterr(response.data);
-      if (!err.bool) {
-        
-      }else{
-        history.push({
-          pathname: "/profile",
-        });
+      if (err.bool) {
+        setTimeout(() => {
+          history.push({
+            pathname: "/profile",
+          });
+        }, 2000);
       }
     });
   };
+
+  
 
   return (
     <div>
@@ -92,15 +90,13 @@ function CreateGig() {
           </div>
           <div className="gig-category-section">
             <label className="gig-title-gategory">CATEGORY</label>
-            <select className="gig-select-gategory">
-              <option
-                value="All"
-                onChange={(e) => {
-                  setcategory(e.target.value);
-                }}
-              >
-                Select
-              </option>
+            <select
+              className="gig-select-gategory"
+              onChange={(e) => {
+                setcategory(e.target.value);
+              }}
+            >
+              <option value="">Select</option>
               <option value="Graphics & Design">Graphics & Design</option>
               <option value="Digital Marketing">Digital Marketing</option>
               <option value="Writing & Translation">
@@ -138,6 +134,7 @@ function CreateGig() {
             <label className="gig-title-image">Images</label>
             <div className="images-grid">
               <div className="grid-1">
+                <img src={url1} alt="image1" className="image1"></img>
                 <input
                   className="imageuploader-gig1"
                   type="file"
@@ -148,6 +145,7 @@ function CreateGig() {
               </div>
 
               <div className="grid-2">
+                <img src={url2} alt="image2" className="image2"></img>
                 <input
                   className="imageuploader-gig2"
                   type="file"
@@ -157,6 +155,7 @@ function CreateGig() {
                 />
               </div>
               <div className="grid-3">
+                <img src={url3} alt="image3" className="image3"></img>
                 <input
                   className="imageuploader-gig3"
                   type="file"
@@ -166,6 +165,9 @@ function CreateGig() {
                 />
               </div>
             </div>
+            <button className="photo-sumbit" onClick={upload}>
+              Upload
+            </button>
           </div>
           <button className="gig-sumbit" onClick={create}>
             Create
@@ -173,6 +175,7 @@ function CreateGig() {
           <p className="error">{err.message}</p>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

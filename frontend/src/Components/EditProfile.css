@@ -62,3 +62,48 @@
 .desc{
     height: 200px;
 }
+
+.editor1{
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.ck-editor__editable {
+    min-height: 160px;
+}
+
+.photo-sumbit1{
+    position: absolute;
+    top: 29rem;
+    left: 10rem;
+    height: 40px;
+    width: 120px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold; 
+}
+
+.photo-sumbit1:hover{
+    background-color: black;
+    color: white;
+}
+
+
+
+.photo-sumbit2{
+    position: absolute;
+    top: 66rem;
+    left: 49.5rem;
+    height: 40px;
+    width: 120px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold; 
+}
+
+.photo-sumbit2:hover{
+    background-color: black;
+    color: white;
+}
