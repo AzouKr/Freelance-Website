@@ -10,9 +10,9 @@ const jwt = require('jsonwebtoken');
 
 router.post("/Creategig", async (req, res) => {
 
-    // Validate data
-    const { error } = gigValidation(req.body);
-    if (error) return res.send(error);
+    // // Validate data
+    // const { error } = gigValidation(req.body);
+    // if (error) return res.send({message: error.details[0].message, bool: false});
   
     
     // Create a new Profile
@@ -28,7 +28,7 @@ router.post("/Creategig", async (req, res) => {
     });
     try {
       await gig.save();
-      res.send("gig is successfuly registred");
+      res.send({message: "gig is successfuly registred", bool: true});
     } catch (err) {
       res.status(400).send(err);
     }

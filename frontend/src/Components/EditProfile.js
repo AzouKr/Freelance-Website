@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useHistory } from "react-router-dom";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import UploadClient from '@uploadcare/upload-client'
 
 function EditProfile() {
   let history = useHistory();
@@ -32,13 +33,9 @@ function EditProfile() {
   const register = (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("file", image);
-    formData.append("upload_preset", "rqwsgyp3");
-    formData.append("email", "azou");
-
-    Axios.post("https://api.cloudinary.com/v1_1/azoukr/image/upload", formData).then((response) =>{
-        seturl(response.data.url);
+    const client = new UploadClient({ publicKey: '0074a132b6c1cd126d61' })
+    client.uploadFile(image).then((response) =>{
+      seturl(response.cdnUrl);
     });
 
     Axios.post("http://localhost:3001/api/user/register", {
@@ -61,7 +58,7 @@ function EditProfile() {
       image: url,
     }).then((response) => {
       setinfo(response.data);
-      if(info.bool){
+      if(!info.bool){
       history.push({
         pathname: "/signin",
       });

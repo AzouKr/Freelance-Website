@@ -7,6 +7,7 @@ import Homepage from "./Homepage";
 import login from "./User/login";
 import Register from './User/register';
 import GigDisplay from './Components/GigDisplay';
+import CreateGig from './Components/CreateGig';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <Route path="/main" exact component={MainPage}/>
     <Route path="/profile"  component={Porfile}/>
     <Route path="/main/gigs"  component={ListGigtype}/>
+    <Route path="/main/createGig"  component={CreateGig}/>
     <Route path="/main/gig/:title"  component={GigDisplay}/>
     <Route path="/"  component={Homepage}/>
     </Switch>
