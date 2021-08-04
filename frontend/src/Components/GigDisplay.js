@@ -4,7 +4,7 @@ import Section from "./Section";
 import "./GigDisplay.css";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Axios from "axios";
 import {useParams} from 'react-router-dom';
 import img from "../img/Capture.JPG";
@@ -17,9 +17,11 @@ function GigDisplay() {
     const [info, setinfo] = useState([]);
 
 
-    Axios.get("http://localhost:3001/api/allgigs").then((response) => {
+    useEffect(() => {
+      Axios.get("http://localhost:3001/api/allgigs").then((response) => {
       setinfo(response.data);
     });
+    }, [])
 
   
 

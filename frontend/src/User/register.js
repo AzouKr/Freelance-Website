@@ -1,9 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./register.css";
 import { useHistory } from "react-router-dom";
 import background3 from "../img/Group163.png";
 import background4 from "../img/Group247.png";
+import Axios from "axios";
+
 
 function Register() {
   let history = useHistory();
@@ -16,6 +18,14 @@ function Register() {
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+
+  useEffect(() => {
+    Axios.defaults.withCredentials = true;
+    Axios.get("http://localhost:3001/api/user/login").then((response) => {
+      if(response.data.loggedIn === true){
+        history.push("/main");
+      }});
+  }, [])
 
   const register = (e) => {
     e.preventDefault();

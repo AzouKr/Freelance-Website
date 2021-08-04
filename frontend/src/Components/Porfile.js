@@ -1,21 +1,18 @@
 import React from "react";
 import "./Profile.css";
 import NavBar from "./NavBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import Section from "./Section";
 import { useHistory, Link } from "react-router-dom";
 import Footer from "./Footer";
 
-
-
-
 function Porfile() {
   const [info, setinfo] = useState([]);
   const [gig, setgig] = useState([]);
   let history = useHistory();
-  
-  var HtmlToReactParser = require('html-to-react').Parser;
+
+  var HtmlToReactParser = require("html-to-react").Parser;
   var htmlToReactParser = new HtmlToReactParser();
   var reactElement = htmlToReactParser.parse(info.description);
 
@@ -56,14 +53,16 @@ function Porfile() {
     </a>
   );
 
-  Axios.defaults.withCredentials = true;
-  Axios.get("http://localhost:3001/api/user/login").then((response) => {
-    if (response.data.loggedIn === false) {
-      history.push("/signin");
-    } else {
-      setinfo(response.data.user);
-    }
-  });
+  useEffect(() => {
+    Axios.defaults.withCredentials = true;
+    Axios.get("http://localhost:3001/api/user/login").then((response) => {
+      if (response.data.loggedIn === false) {
+        history.push("/signin");
+      } else {
+        setinfo(response.data.user);
+      }
+    });
+  }, []);
 
   Axios.post("http://localhost:3001/api/profilegig", {
     email: info.email,
@@ -80,11 +79,11 @@ function Porfile() {
             <h5 class="card-title">{item.title}</h5>
             <p class="card-text">{item.description.substring(0, 50)}</p>
             <div className="bottom">
-            <Link to={`/main/gig/${item.title}`}>
+              <Link to={`/main/gig/${item.title}`}>
                 <a href="#" class="btn btn-gig">
                   Go Ordre It
                 </a>
-                </Link>
+              </Link>
               <h1 className="price">STARTING AT ${item.price}</h1>
             </div>
           </div>
@@ -105,11 +104,7 @@ function Porfile() {
           </div>
           <div>
             <div className="profile-box">
-              <img
-                src={info.image}
-                alt="Avatar"
-                className="profile-img"
-              ></img>
+              <img src={info.image} alt="Avatar" className="profile-img"></img>
               <h1 className="profile-name">{info.username}</h1>
               <div className="profile-info">
                 <div className="from">
@@ -144,7 +139,7 @@ function Porfile() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

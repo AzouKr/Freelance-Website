@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Axios from "axios";
 import "./login.css";
 import background from "../img/Group145.png";
@@ -23,11 +23,13 @@ function Login() {
   const [password, setpassword] = useState("");
   const [info, setinfo] = useState([]);
 
-  Axios.defaults.withCredentials = true;
-  Axios.get("http://localhost:3001/api/user/login").then((response) => {
-    if(response.data.loggedIn === true){
-      history.push("/main");
-    }});
+    useEffect(() => {
+      Axios.defaults.withCredentials = true;
+      Axios.get("http://localhost:3001/api/user/login").then((response) => {
+        if(response.data.loggedIn === true){
+          history.push("/main");
+        }});
+    }, [])
 
   const signin  = (e)  => {
     e.preventDefault();

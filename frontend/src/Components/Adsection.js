@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Adsection.css";
 import slideshow from "../img/slideshow.gif";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Axios from "axios";
 import { useHistory, Link } from 'react-router-dom';
 
@@ -12,13 +12,18 @@ function Adsection () {
   const [info, setinfo] = useState([]);
   Axios.defaults.withCredentials = true;
 
-    Axios.get("http://localhost:3001/api/user/login").then((response) => {
+
+    useEffect(() => {
+      Axios.get("http://localhost:3001/api/user/login").then((response) => {
       if(response.data.loggedIn === false){
         history.push("/signin");
       }else{
       setinfo(response.data.user);
       }
     });
+    }, [])
+
+    
     return (
         <div>
         <div className="Section">

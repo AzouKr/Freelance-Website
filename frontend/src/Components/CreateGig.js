@@ -4,7 +4,7 @@ import Section from "./Section";
 import "./createGig.css";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import UploadClient from "@uploadcare/upload-client";
@@ -41,13 +41,16 @@ function CreateGig() {
     });
   };
 
+  useEffect(() => {
+    Axios.defaults.withCredentials = true;
+  Axios.get("http://localhost:3001/api/user/login").then((response) => {
+    setinfo(response.data.user);
+  });
+  }, [])
+
   const create = (e) => {
     e.preventDefault();
 
-    Axios.defaults.withCredentials = true;
-    Axios.get("http://localhost:3001/api/user/login").then((response) => {
-      setinfo(response.data.user);
-    });
     Axios.post("http://localhost:3001/api/Creategig", {
       email: info.email,
       title: title,

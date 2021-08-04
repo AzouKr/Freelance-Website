@@ -1,6 +1,6 @@
 import React from "react";
 import "./ListGig.css";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Axios from "axios";
 import {Link} from 'react-router-dom';
 
@@ -9,9 +9,12 @@ function ListGig() {
 
   const [info, setinfo] = useState([]);
 
-    Axios.get("http://localhost:3001/api/allgigs").then((response) => {
-      setinfo(response.data);
-    });
+
+    useEffect(() => {
+      Axios.get("http://localhost:3001/api/allgigs").then((response) => {
+        setinfo(response.data);
+      });
+    }, [])
 
 
     function display() {

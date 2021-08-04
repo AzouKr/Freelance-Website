@@ -76,7 +76,7 @@ router.post("/login", async (req, res) => {
 
 });
 
-router.get("/login", verify, async (req, res) => {
+router.get("/login", async (req, res) => {
   if (req.session.user) {
    await res.send({ loggedIn: true, user: req.session.user});
   } else {

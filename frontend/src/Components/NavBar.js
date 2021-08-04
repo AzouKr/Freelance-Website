@@ -9,8 +9,8 @@ function NavBar() {
 
   const Logout = (e) => {
     e.preventDefault();
+    
     Axios.defaults.withCredentials = true;
-
     Axios.get("http://localhost:3001/api/user/logout");
     history.push({
       pathname: "/",
