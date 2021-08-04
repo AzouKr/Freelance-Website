@@ -39,6 +39,9 @@
     font-size: 15px;
     left: 20px;
     top: 26px;
+    border-right: 2px solid gray;
+    padding-right: 20px;
+    height: 18px;
 }
 
 
@@ -252,7 +255,7 @@
     height: 500px;
     width: 414px;
     left: 75rem;
-    top: 30rem;
+    top: 25rem;
     border: 1px solid gray;
 }
 
@@ -377,4 +380,25 @@
 .buy-it:hover{
     background-color: #082032;
     cursor: pointer;
+}
+
+.stars-profile{
+    position: relative;
+    top: 23px;
+    left: 40px;
+    margin-bottom: 20px;
+    color: green;
+}
+
+
+
+.seller-orders{
+    position: relative;
+    font-size: 15px;
+    left: 60px;
+    top: 26px;
+    border-left: 2px solid gray;
+    padding-left: 20px;
+    height: 18px;
+    color: #95979d;
 }

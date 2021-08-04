@@ -4,64 +4,66 @@ import Section from "./Section";
 import "./GigDisplay.css";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
-import {useParams} from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import img from "../img/Capture.JPG";
 import img1 from "../img/pro.JPG";
 
 
 function GigDisplay() {
-    
-    const { title } = useParams();
-    const [info, setinfo] = useState([]);
+  const { title } = useParams();
+  const [info, setinfo] = useState([]);
 
-
-    useEffect(() => {
-      Axios.get("http://localhost:3001/api/allgigs").then((response) => {
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/allgigs").then((response) => {
       setinfo(response.data);
     });
-    }, [])
+  }, []);
 
-  
-
-    function display() {
-        return info.filter(item => item.title === title).map((item) => {
-          var HtmlToReactParser = require('html-to-react').Parser;
-         var htmlToReactParser = new HtmlToReactParser();
-         var reactElement = htmlToReactParser.parse(item.description);
-          return (
-            <div className="gig-info">
-        <h1 className="gig-title">
-          {item.title}
-        </h1>
-        <div className="seller">
-          <img
-            src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png"
-            alt="Avatar"
-            className="profile-gig"
-          ></img>
-          <h1 className="seller-name">edeastman</h1>
-        </div>
-        <AwesomeSlider animation="cubeAnimation" className="cubeAnimation">
-          <div data-src={item.image1} />
-          <div data-src={item.image2} />
-          <div data-src={item.image3} />
-        </AwesomeSlider>
-        <h1 className="About">About This Gig</h1>
-        <p className="gig-desc">{reactElement}</p>
-      </div>
-          );
-        });
-      }
+  function display() {
+    return info
+      .filter((item) => item.title === title)
+      .map((item) => {
+        var HtmlToReactParser = require("html-to-react").Parser;
+        var htmlToReactParser = new HtmlToReactParser();
+        var reactElement = htmlToReactParser.parse(item.description);
+        return (
+          <div className="gig-info">
+            <h1 className="gig-title">{item.title}</h1>
+            <div className="seller">
+              <img
+                src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png"
+                alt="Avatar"
+                className="profile-gig"
+              ></img>
+              <h1 className="seller-name">edeastman</h1>
+              <div className="stars-profile">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <h1 className="seller-orders">16 Orders in Queue</h1>
+            </div>
+            <AwesomeSlider animation="cubeAnimation" className="cubeAnimation">
+              <div data-src={item.image1} />
+              <div data-src={item.image2} />
+              <div data-src={item.image3} />
+            </AwesomeSlider>
+            <h1 className="About">About This Gig</h1>
+            <p className="gig-desc">{reactElement}</p>
+          </div>
+        );
+      });
+  }
 
   return (
     <div>
-      <NavBar props={"kerimaou@gmail.com"} />
-      <Section props={"kerimaou@gmail.com"} />
+      <NavBar/>
+      <Section/>
       <div className="info">
-      {display()} 
-      <div className="devider"></div>
+        {display()}
+        <div className="devider"></div>
         <div className="Seller">
           <img src={img} alt="img" className="img-seller"></img>
           <h1 className="About-seller">About The Seller</h1>
@@ -135,16 +137,16 @@ function GigDisplay() {
             <h1 className="time-del">4 Days Delivery</h1>
           </div>
           <div className="check">
-          <i class="fa fa-check" aria-hidden="true"></i>
-          <h1 className="check-text">4 Pages</h1>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            <h1 className="check-text">4 Pages</h1>
           </div>
           <div className="check">
-          <i class="fa fa-check" aria-hidden="true"></i>
-          <h1 className="check-text">3 Products</h1>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            <h1 className="check-text">3 Products</h1>
           </div>
           <div className="check">
-          <i class="fa fa-check" aria-hidden="true"></i>
-          <h1 className="check-text">1 Plugin/Extension</h1>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            <h1 className="check-text">1 Plugin/Extension</h1>
           </div>
           <button className="buy-it">Continue ($195)</button>
         </div>

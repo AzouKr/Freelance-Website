@@ -4,7 +4,6 @@ import NavBar from './NavBar';
 import Section from './Section';
 import ListGig from './ListGig'; 
 import Adsection from './Adsection';
-import Footer from './Footer';
 
 
 
