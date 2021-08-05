@@ -62,17 +62,30 @@
 .fa-user{
     position: absolute;
     top: 4px;
-    left: 560px;
+    left: 535px;
 }
 
 
 .logout{
     position: absolute;
     font-weight: bold;
-    left: 38rem;
+    left: 36rem;
     width: 90px;
 }
 
 .logout:hover{
     cursor: pointer;
+}
+
+.count{
+    position: absolute;
+    font-size: 13px;
+    color: white;
+    background-color: green;
+    padding-left: 6px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    left: 26.5rem;
+    top: 0.8rem;
 }

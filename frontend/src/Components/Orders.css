@@ -1,0 +1,70 @@
+.list-orders{
+    position: absolute;
+    top: 200px;
+    left: 450px;
+    width: 1000px;
+    padding-bottom: 100px;
+    margin: 100px;
+    border:1.5px solid gainsboro;
+    border-radius: 5px;
+}
+
+.order-box{
+    position: relative;
+    width: 950px;
+    height: 550px;
+    top: 25px;
+    left: 25px;
+    border:1.5px solid black;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.order-image{
+    position: absolute;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    top: 36px;
+    left: 20px;
+}
+
+.order-seller{
+    position: absolute;
+    font-size: 17px;
+    font-weight: 700px;
+    top: 40px;
+    left: 100px;
+}
+
+.order-seller-email{
+    position: absolute;
+    font-size: 17px;
+    font-weight: 700px;
+    top: 70px;
+    left: 100px;
+}
+
+.order-title-subject{
+    position: absolute;
+    font-size: 20px;
+    font-weight: 700px;
+    top: 130px;
+    left: 40px;
+}
+
+.order-title{
+    position: absolute;
+    font-size: 20px;
+    font-weight: 700px;
+    top: 130px;
+    left: 140px;
+}
+
+.order-para{
+    position: absolute;
+    top: 180px;
+    left: 40px;
+    width: 850px;
+    
+}

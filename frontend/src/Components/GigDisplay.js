@@ -6,14 +6,16 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import { useState, useEffect } from "react";
 import Axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import img from "../img/Capture.JPG";
 import img1 from "../img/pro.JPG";
+
 
 
 function GigDisplay() {
   const { title } = useParams();
   const [info, setinfo] = useState([]);
+
 
   useEffect(() => {
     Axios.get("http://localhost:3001/api/allgigs").then((response) => {
@@ -56,6 +58,57 @@ function GigDisplay() {
         );
       });
   }
+
+
+  function displayprice() {
+    return info
+      .filter((item) => item.title === title)
+      .map((item) => {
+        return (
+          <div className="contact-sell-price">
+          <div className="buttons">
+            <button className="basic">Basic</button>
+            <button className="standard">Standard</button>
+            <button className="premium">Premium</button>
+          </div>
+          <div className="offer-title">
+            <h1 className="offer-title-h1">Ready Made Make Money Online Store</h1>
+            <h1 className="offer-price">${item.price}</h1>
+          </div>
+          <p className="offer-desc">
+            Includes 3x Ebooks to sell with master resell rights
+          </p>
+          <div className="delivery">
+            <div className="del-time">
+              <i class="fa fa-clock" aria-hidden="true"></i>
+              <h1 className="time-del">4 Days Delivery</h1>
+            </div>
+            <div className="check">
+              <i class="fa fa-check" aria-hidden="true"></i>
+              <h1 className="check-text">4 Pages</h1>
+            </div>
+            <div className="check">
+              <i class="fa fa-check" aria-hidden="true"></i>
+              <h1 className="check-text">3 Products</h1>
+            </div>
+            <div className="check">
+              <i class="fa fa-check" aria-hidden="true"></i>
+              <h1 className="check-text">1 Plugin/Extension</h1>
+            </div>
+            <Link to={{pathname: "/main/order", aboutprops:{
+              email: item.email,
+              title: item.title,
+              price: item.price,
+            }}}>
+            <button className="buy-it" >Continue (${item.price})</button>
+            </Link>
+          </div>
+        </div>
+        );
+      });
+  }
+
+
 
   return (
     <div>
@@ -118,39 +171,7 @@ function GigDisplay() {
           </div>
         </div>
       </div>
-      <div className="contact-sell-price">
-        <div className="buttons">
-          <button className="basic">Basic</button>
-          <button className="standard">Standard</button>
-          <button className="premium">Premium</button>
-        </div>
-        <div className="offer-title">
-          <h1 className="offer-title-h1">Ready Made Make Money Online Store</h1>
-          <h1 className="offer-price">$100</h1>
-        </div>
-        <p className="offer-desc">
-          Includes 3x Ebooks to sell with master resell rights
-        </p>
-        <div className="delivery">
-          <div className="del-time">
-            <i class="fa fa-clock" aria-hidden="true"></i>
-            <h1 className="time-del">4 Days Delivery</h1>
-          </div>
-          <div className="check">
-            <i class="fa fa-check" aria-hidden="true"></i>
-            <h1 className="check-text">4 Pages</h1>
-          </div>
-          <div className="check">
-            <i class="fa fa-check" aria-hidden="true"></i>
-            <h1 className="check-text">3 Products</h1>
-          </div>
-          <div className="check">
-            <i class="fa fa-check" aria-hidden="true"></i>
-            <h1 className="check-text">1 Plugin/Extension</h1>
-          </div>
-          <button className="buy-it">Continue ($195)</button>
-        </div>
-      </div>
+      {displayprice()}
     </div>
   );
 }

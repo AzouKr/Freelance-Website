@@ -111,8 +111,12 @@
 }
 
 .go{
+    position: absolute;
+    width: 200px;
     font-size: 15px;
-    margin-left: 10px;
+    left: 20px;
+    bottom: -5px;
+    
 }
 
 .go:hover{

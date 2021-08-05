@@ -25,7 +25,7 @@ function EditProfile() {
   const [twitter, settwitter] = useState("");
   const [instagram, setinstagram] = useState("");
   const [website, setwebsite] = useState("");
-  const [info, setinfo] = useState([]);
+  const [info, setinfo] = useState("");
   const [image, setimage] = useState("");
   const [url, seturl] = useState("");
 
@@ -51,14 +51,12 @@ function EditProfile() {
       website: website,
       image: url,
     }).then((response) => {
-      setinfo(response.data);
-      if (!info.bool) {
-        history.push({
-          pathname: "/signin",
-        });
-      } else {
-        console.log(info.message);
-      }
+      setinfo(response.data.message);
+      if(response.data.bool){
+      window.setTimeout(() => {
+        history.push("/main");
+      }, 1000);
+    }
     });
   };
 

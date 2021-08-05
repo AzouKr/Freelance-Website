@@ -8,6 +8,9 @@ import login from "./User/login";
 import Register from './User/register';
 import GigDisplay from './Components/GigDisplay';
 import CreateGig from './Components/CreateGig';
+import OrderSender from './Components/OrderSender';
+import Orders from './Components/Orders';
+
 
 
 function App() {
@@ -23,6 +26,8 @@ function App() {
     <Route path="/main/gigs"  component={ListGigtype}/>
     <Route path="/main/createGig"  component={CreateGig}/>
     <Route path="/main/gig/:title"  component={GigDisplay}/>
+    <Route path="/main/order"  component={OrderSender}/>
+    <Route path="/main/orders"  component={Orders}/>
     <Route path="/"  component={Homepage}/>
     </Switch>
     </div>

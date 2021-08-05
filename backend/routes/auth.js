@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const User = require("../model/User");
-const session = require("express-session");
+const session = require("cookie-session");
 const verify = require('../middlewares/verifyToken');
 
 const {
@@ -70,8 +70,9 @@ router.post("/login", async (req, res) => {
   // Create and assign a token
   const token = jwt.sign({ _id: user._id }, process.env.Token_Secret);
   res.header("auth-token", token);
-  req.session.token = token;
   req.session.user = user;
+  req.session.token = token;
+
   res.send({message: " ", bool: true});
 
 });

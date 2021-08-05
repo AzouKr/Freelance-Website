@@ -99,8 +99,10 @@ function Porfile() {
       <div className="profile-body">
         <div className="porfile-section">
           <div className="go-home">
+          <Link to="/main" style={{textDecoration: 'none', color: 'black'}} >
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
             <h1 className="go">Go back To Homepage</h1>
+            </Link>
           </div>
           <div>
             <div className="profile-box">

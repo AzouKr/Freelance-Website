@@ -24,7 +24,7 @@ function CreateGig() {
   const [category, setcategory] = useState("");
   const [price, setprice] = useState(0);
   const [info, setinfo] = useState([]);
-  const [err, seterr] = useState([]);
+  const [err, seterr] = useState("");
 
   const upload = (e) => {
     e.preventDefault();
@@ -61,13 +61,11 @@ function CreateGig() {
       price: price,
       type: category,
     }).then((response) => {
-      seterr(response.data);
-      if (err.bool) {
-        setTimeout(() => {
-          history.push({
-            pathname: "/profile",
-          });
-        }, 2000);
+      seterr(response.data.message);
+      if(response.data.bool){
+        window.setTimeout(() => {
+          history.push("/main");
+        }, 1000);
       }
     });
   };
@@ -175,7 +173,7 @@ function CreateGig() {
           <button className="gig-sumbit" onClick={create}>
             Create
           </button>
-          <p className="error">{err.message}</p>
+          <p className="error">{err}</p>
         </div>
       </div>
       <Footer/>

@@ -17,6 +17,7 @@ function ListGig() {
     }, [])
 
 
+
     function display() {
       return info.map((item) => {
         return (

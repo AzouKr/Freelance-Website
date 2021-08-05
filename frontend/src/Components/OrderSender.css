@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
+
+.Email-container{
+    position: absolute;
+    height: 70vh;
+    width: 80vw;
+    top: 200px;
+    left: 200px;
+    margin-bottom: 100px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.check-out{
+    position: relative;
+    width: 343px;
+    height: 353px;
+    border: 1px solid black;
+    border-radius: 2px;
+    left: 30px;
+    top: 10rem;
+}
+
+.first-box{
+    position:absolute;
+}
+
+.Summary{
+    position: relative;
+    font-size: 16px;
+    font-weight: 700;
+    color: #404145;
+    font-family: 'Roboto Slab', serif;
+    left: 20px;
+    top: 20px;
+
+}
+
+.tottal-con{
+    display: flex;
+
+}
+
+.Subtotal{
+    position: relative;
+    font-size: 14px;
+    color: gray;
+    left: 20px;
+    top: 50px;
+}
+
+.origin-price{
+    position: relative;
+    font-size: 14px;
+    color: gray;
+    top: 55px;
+}
+
+.tottal-con1{
+    display: flex;
+}
+
+.service-fee{
+    position: relative;
+    font-size: 14px;
+    color: gray;
+    left: 20px;
+    top: 80px;
+}
+
+.VAT-price{
+    position: relative;
+    font-size: 14px;
+    right: 9px;
+    color: gray;
+    top: 85px;
+}
+
+.space-between{
+    position: absolute;
+    top: 12rem;
+    left: 20px;
+    height: 10px;
+    width: 280px;
+    border-top: 1px solid gray;
+}
+
+.tottal-con2{
+    position: absolute;
+    top: 170px;
+    display: flex;
+}
+
+.Send-order{
+    position: absolute;
+    height: 40px;
+    width: 320px;
+    top: 17rem;
+    left: 10px;
+    background-color: #3fca89;
+    border: 1px solid #3fca89;
+    border-radius: 3px;
+    color: white;
+    font-family: 'Roboto Slab', serif;
+}
+
+.email-desc{
+    position: absolute;
+    height: 61vh;
+    width: 58vw;
+    left: 25rem;
+    bottom: 3rem;
+}
+
+.receiver{
+    font-size: 20px;
+    font-weight: bold;
+    left: 40px;
+    top: 40px;
+}
+
+.receiver-email{
+    position: absolute;
+    font-size: 20px;
+    top: 42px;
+    left: 150px;
+}
+
+.subject{
+    position:absolute;
+    font-size: 20px;
+    font-weight: bold;
+    left: 40px;
+    top: 110px;
+}
+
+.subject-title{
+    position: absolute;
+    font-size: 20px;
+    top: 113px;
+    left: 150px;
+}
+
+.editor-mail{
+    position: absolute;
+    top: 14rem;
+    width: 920px;
+    left: 27rem;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.ck-editor__editable {
+    min-height: 300px;
+}
