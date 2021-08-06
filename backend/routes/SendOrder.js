@@ -22,8 +22,9 @@ router.post("/sendOrder", async (req, res) => {
     recemail: req.body.recemail,
     subject: req.body.subject,
     description: req.body.description,
+    username: req.body.username,
+    image: req.body.image,
   });
-
   try {
     await order.save();
     res.send({message: "You'r order is sent", bool: true});

@@ -29,14 +29,16 @@ function OrderSender(props) {
 
     const send  = (e)  => {
         e.preventDefault();
-        Axios.post("http://localhost:3001/api/sendEmail", {
+        Axios.post("http://localhost:3001/api/sendOrder", {
           sendemail: info.email,
           recemail: props.location.aboutprops.email,
           subject: subject,
           description: description,
+          username: info.username,
+          image: info.image,
         });
         window.setTimeout(() => {
-          history.push("/main");
+          history.push("/signin");
         }, 1000);
         }
 

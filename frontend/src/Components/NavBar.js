@@ -14,27 +14,22 @@ function NavBar() {
 
     /****************************************** Find User  *********************************/
 
-
   useEffect(() => {
+    Axios.defaults.withCredentials = true;
     Axios.get("http://localhost:3001/api/user/login").then((response) => {
       if(response.data.loggedIn === false){
         history.push("/signin");
       }else{ 
       setinfo(response.data.user);
       }
+      Axios.post("http://localhost:3001/api/findorder", {
+      email: response.data.user.email,
+    }).then((result) => {
+      setorder(result.data);
+      });
   });
   }, [])
 
-    /****************************************** Number of Orders  *********************************/
-
- 
-  useEffect(() => {
-    Axios.post("http://localhost:3001/api/findorder", {
-      email: info.email,
-    }).then((response) => {
-      setorder(response.data);
-      });
-  }, [])
 
 
   /****************************************** log out  *********************************/
@@ -43,9 +38,9 @@ function NavBar() {
     
     Axios.defaults.withCredentials = true;
     Axios.get("http://localhost:3001/api/user/logout");
-    history.push({
-      pathname: "/",
-    });
+    window.setTimeout(() => {
+      history.push("/");
+    }, 1000);
   };
 
   
@@ -70,10 +65,10 @@ function NavBar() {
             <li className="navItem" style={{ color: "Blue" }}>
               Try Treva Business
             </li>
-            {/* <Link to="/main/orders" style={{textDecoration: 'none', color: 'black'}}> */}
+            <Link to="/main/orders" style={{textDecoration: 'none', color: 'black'}}>
             <li className="navItem">Orders  </li>
             <li className="count">{order}</li>
-            {/* </Link> */}
+            </Link>
             <Link to="/profile" style={{textDecoration: 'none', color: 'black'}}>
             <li className="navItem"> Account</li>
             <i class="fa fa-user" aria-hidden="true"></i>

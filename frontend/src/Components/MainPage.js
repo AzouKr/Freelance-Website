@@ -8,7 +8,7 @@ import Adsection from './Adsection';
 
 
 
-function MainPage() {
+function MainPage() {      
     return (
         <div>
             <NavBar/>

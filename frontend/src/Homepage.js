@@ -30,7 +30,7 @@ function Homepage() {
         <div className="landing-page">
       <div className="Header">
         <img src={logo} alt="logo" className="logo"></img>
-        <Link to="/signin"  style={{ textDecoration: 'none' }}>
+        <Link to="/signin"  style={{ textDecoration: 'none' }} >
         <h1 className="Sign-In" onClick={Login}>Sign In</h1>
         </Link>
         <Link to="/signup"  style={{ textDecoration: 'none' }}>

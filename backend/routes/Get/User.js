@@ -2,7 +2,7 @@ const router = require("express").Router();
 const User = require("../../model/User");
 
 
- router.get("/finduser", async (req, res) => {
+ router.post("/finduser", async (req, res) => {
   await User.find({ email: req.body.email }).then((user) => {
       res.send(user);
   }).catch((e) => {

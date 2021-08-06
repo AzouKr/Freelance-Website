@@ -12,22 +12,24 @@ function Orders() {
   const [order, setorder] = useState([]);
 
   useEffect(() => {
+
+    /**************** find Reciever informations ************************/
+
+    Axios.defaults.withCredentials = true;
     Axios.get("http://localhost:3001/api/user/login").then((response) => {
       if (response.data.loggedIn === false) {
         history.push("/signin");
       } else {
         setinfo(response.data.user);
       }
-    });
-  }, []);
 
-  /**************************************** Find all orders ********************/
-  useEffect(() => {
-    Axios.defaults.withCredentials = true;
-    Axios.post("http://localhost:3001/api/findorderAll", {
-      email: info.email,
-    }).then((response) => {
-      setorder(response.data);
+    /**************** find his Gigs ************************/
+
+      Axios.post("http://localhost:3001/api/findorderAll", {
+      email: response.data.user.email,
+    }).then((result) => {
+      setorder(result.data);
+    });
     });
   }, []);
 
@@ -43,12 +45,12 @@ function Orders() {
             className="order-image"
             alt="profile"
             width="150px"
-            src={info.image}
+            src={item.image}
           />
-          <h1 className="order-seller">{info.username}</h1>
-          <h1 className="order-seller-email">{info.email}</h1>
+          <h1 className="order-seller">{item.username}</h1>
+          <h1 className="order-seller-email">{item.sendemail}</h1>
           <h1 className="order-title-subject">Subject :</h1>
-          <h1 className="order-title">asda sdfsdf</h1>
+          <h1 className="order-title">{item.subject}</h1>
           <p className="order-para">{reactElement}</p>
         </div>
       );
