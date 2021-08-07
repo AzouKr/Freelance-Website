@@ -20,4 +20,12 @@ router.post("/findorder", async (req, res) => {
   })
 });
 
+router.post("/deleteorder", async (req, res) => {
+    await Order.deleteOne({ subject: req.body.subject }).then(() => {
+        console.log("don");
+    }).catch((e) => {
+      console.log(e);
+    })
+  });
+
  module.exports = router;
