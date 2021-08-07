@@ -36,6 +36,13 @@ function Orders() {
 
   function display() {
     return order.map((item) => {
+      const finish = (e) => {
+        e.preventDefault();
+        Axios.post("http://localhost:3001/api/deleteorder", {
+          subject: item.subject,
+        });
+        window.location.reload();
+      };
         var HtmlToReactParser = require("html-to-react").Parser;
         var htmlToReactParser = new HtmlToReactParser();
         var reactElement = htmlToReactParser.parse(item.description);
@@ -52,6 +59,7 @@ function Orders() {
           <h1 className="order-title-subject">Subject :</h1>
           <h1 className="order-title">{item.subject}</h1>
           <p className="order-para">{reactElement}</p>
+          <button className="finish" onClick={finish}>Finish</button>
         </div>
       );
     });

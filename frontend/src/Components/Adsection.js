@@ -29,10 +29,10 @@ function Adsection () {
         <div className="Section">
         <div className="box">
             <h1 className="welcome">Hi {info.username},</h1>
-            <h2 className="sous-welcome1">Get offers from sellers for</h2>
-            <h2 className="sous-welcome2">your project</h2>
+            <h2 className="sous-welcome1">Get offers from Buyers for</h2>
+            <h2 className="sous-welcome2">your Gigs</h2>
             <Link to="/main/createGig">
-            <button className="request">Post a Request</button>
+            <button className="request">Post a Gig</button>
             </Link>
         </div>
         <div className="slideshow">

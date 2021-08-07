@@ -68,3 +68,20 @@
     width: 850px;
     
 }
+
+.finish{
+    position: absolute;
+    top: 480px;
+    left: 800px;
+    height: 40px;
+    width: 120px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold; 
+}
+
+.finish:hover{
+    background-color: black;
+    color: white;
+}
