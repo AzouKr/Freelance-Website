@@ -154,3 +154,34 @@
 .ck-editor__editable {
     min-height: 300px;
 }
+
+.fa-question-circle{
+    position: absolute;
+    left: 27rem;
+    top: 38rem;
+}
+
+.how-to{
+    position: absolute;
+    left: 28.5rem;
+    top: 37.9rem;
+    font-size: 15px;
+}
+
+
+.slideshow{
+    position: absolute;
+    left: 30.5rem;
+    top: 16rem;
+    padding: 7px;
+    border: 1px solid black;
+    background-color:#d5d4d2;
+    visibility: hidden;
+
+}
+
+.fa-question-circle:hover + .slideshow{
+
+    visibility: visible;
+
+}

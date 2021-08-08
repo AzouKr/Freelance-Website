@@ -7,6 +7,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
+import slideshow from "../img/slidshow4.gif";
 
 
 
@@ -83,6 +84,12 @@ function OrderSender(props) {
                 }}
               />
             </div>
+            <i class="fa fa-question-circle" aria-hidden="true"></i>
+            <div className="slideshow">
+            <img src={slideshow} alt="Slideshow" className="Slide4" />
+            </div>
+            <h1 className="how-to">How to upload my footages</h1>
+            
       </div>
     </div>
   );

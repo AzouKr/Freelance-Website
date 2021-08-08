@@ -6,6 +6,8 @@ import Axios from "axios";
 import Section from "./Section";
 import { useHistory, Link } from "react-router-dom";
 import Footer from "./Footer";
+import slideshow from "../img/slidshow3.gif";
+
 
 function Porfile() {
   const [info, setinfo] = useState([]);
@@ -140,6 +142,7 @@ function Porfile() {
             <div className="My-Gigs">{display()}</div>
           </div>
         </div>
+        <img src={slideshow} alt="Slideshow" className="Slide3" />
       </div>
       <Footer />
     </div>

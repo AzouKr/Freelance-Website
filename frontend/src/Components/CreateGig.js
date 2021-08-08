@@ -9,6 +9,8 @@ import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import UploadClient from "@uploadcare/upload-client";
 import Footer from "./Footer";
+import slideshow from "../img/slidshow2.gif";
+
 
 
 function CreateGig() {
@@ -76,7 +78,9 @@ function CreateGig() {
     <div>
       <NavBar />
       <Section />
+      <div className="body">
       <div className="create-gig">
+      <img src={slideshow} alt="Slideshow" className="Slide2" />
         <div className="gig-overview">
           <div className="gig-title-section">
             <label className="gig-title-text">GIG TITLE</label>
@@ -175,6 +179,7 @@ function CreateGig() {
           </button>
           <p className="error">{err}</p>
         </div>
+      </div>
       </div>
       <Footer/>
     </div>

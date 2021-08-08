@@ -1,3 +1,7 @@
+.body{
+    background: #d5d4d2;
+}
+
 .create-gig{
     width: 99.1vw;
     height: 120vh;
@@ -242,4 +246,10 @@
 .photo-sumbit:hover{
     background-color: black;
     color: white;
+}
+
+.Slide2{
+    position: absolute;
+    top: 11rem;
+    left: 82rem;
 }

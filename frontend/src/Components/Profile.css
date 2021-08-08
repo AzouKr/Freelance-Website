@@ -1,5 +1,5 @@
 .profile-body{
-    height: 130vh;
+    height: 190vh;
     width: 99.1vw;
     background-color: #f7f7f7;
 }
@@ -200,4 +200,11 @@
     font-weight: 400;
     color: #555;
     padding-bottom: 20px;
+}
+
+
+.Slide3{
+    position: relative;
+    top: 65rem;
+    left: 54rem;
 }
