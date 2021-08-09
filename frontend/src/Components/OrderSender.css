@@ -169,7 +169,7 @@
 }
 
 
-.slideshow{
+.slidesho{
     position: absolute;
     left: 30.5rem;
     top: 16rem;
@@ -180,7 +180,7 @@
 
 }
 
-.fa-question-circle:hover + .slideshow{
+.fa-question-circle:hover + .slidesho{
 
     visibility: visible;
 

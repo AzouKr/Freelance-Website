@@ -85,7 +85,7 @@ function OrderSender(props) {
               />
             </div>
             <i class="fa fa-question-circle" aria-hidden="true"></i>
-            <div className="slideshow">
+            <div className="slidesho">
             <img src={slideshow} alt="Slideshow" className="Slide4" />
             </div>
             <h1 className="how-to">How to upload my footages</h1>

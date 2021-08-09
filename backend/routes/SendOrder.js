@@ -28,7 +28,6 @@ router.post("/sendOrder", async (req, res) => {
   try {
     await order.save();
     res.send({message: "You'r order is sent", bool: true});
-    console.log("You'r order is sent");
   } catch (err) {
     res.status(400).send(err);
   }
