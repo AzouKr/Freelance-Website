@@ -29,11 +29,11 @@ For all our feature and bug tracking, we use the [Issues Section](https://github
 # Some Images
 
 
-![Landing Page](frontend/src/img/login.JPG)
+![Landing Page](frontend/src/img/login.jpg)
 <br><br>
-![Landing Page](frontend/src/img/homepage1.JPG)
+![Landing Page](frontend/src/img/homepage1.jpg)
 <br><br>
-![Landing Page](frontend/src/img/profile.JPG)
+![Landing Page](frontend/src/img/profile.jpg)
 <br><br>
-![Landing Page](frontend/src/img/gig.JPG)
+![Landing Page](frontend/src/img/gig.jpg)
 <br>
