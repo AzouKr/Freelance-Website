@@ -17,7 +17,7 @@ Home Page
 
 
 # Technical Details
-This application is web-based, For all the front-end components, [ReactJs](https://reactjs.org/) is used and the player is completely HTML5-based. The application is essentially split into Grails for a REST-API, and ReactJs for the frontend.
+This application is web-based, For all the front-end components, [ReactJs](https://reactjs.org/). The application is essentially split into Grails for a REST-API, and ReactJs for the frontend.
 
 Treva uses the [MongooDb](https://www.mongodb.com/) for the database.
 
