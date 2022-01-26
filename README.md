@@ -33,6 +33,8 @@ For all our feature and bug tracking, we use the [Issues Section](https://github
 <br><br>
 ![Landing Page](frontend/src/img/homepage1.jpg)
 <br><br>
+![Landing Page](frontend/src/img/showgig.jpg)
+<br><br>
 ![Landing Page](frontend/src/img/profile.jpg)
 <br><br>
 ![Landing Page](frontend/src/img/gig.jpg)
